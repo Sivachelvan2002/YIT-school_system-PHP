@@ -1,3 +1,13 @@
+<?php
+	$id = $_GET['id'];
+	require_once('../config.php');
+	
+	$query = "SELECT * FROM student WHERE id = '$id' ;";
+	$result = mysqli_query($conn,$query);
+	$row = mysqli_fetch_array($result);
+
+
+?>
 <DOCTYPE html>
 <html>
 <head>
@@ -20,26 +30,10 @@
 </style>
 </head>
 <body>
-<?php 
-	$id = $_GET['id'];
-	require_once('../config.php');
-	
-	$query = "SELECT * FROM student WHERE id = '$id' ;";
-	$result = mysqli_query($conn,$query);
-	$row = mysqli_fetch_array($result);
-	
-	
-	require_once('../config.php');
-	
-	$query1 = "SELECT id,grade_name FROM grade;";
-	$results = mysqli_query($conn,$query1);
-
-?>
 <center>
-<form action="update.php" method = "POST" autocomplete = "on">
 <table border="1" cellpadding = "10" cellspacing = "4">
 	<tr>
-		<th colspan = "2"> Edit Student details  </th> 
+		<th colspan = "2"> Student details  </th> 
 	</tr>
 	<tr>
 		<td><label for="father_name">Father Name</label></td>
@@ -57,11 +51,7 @@
 	<tr>
 		<td><label for="grade_id">Grade Id</label></td>
 		<td>
-		<select>
-		<?php while($row1=mysqli_fetch_assoc($results)){ ?>
-			<option  value="<?php echo $row1['id']; ?>"><?php echo $row1['grade_name'] ?></option>
-		<?php } ?>
-		</select>
+		<input type="SELECT" name="grade_id" id="grade_id" value="<?php echo $row['grade_id']?>">
 		</td>
 	</tr>
 	<tr>
@@ -85,10 +75,9 @@
 		<td><input type="text" name="address" id="address" value="<?php echo $row['address']?>"></td>
 	</tr>
 </table> </br>
-<input type="reset" value="Reset"> <input type="submit" value="Save">
 	
 
-</form>
+
 </center>
 </body>
 </html>

@@ -1,14 +1,10 @@
 <?php
-require_once('../config.php');
-
-$query = "SELECT * FROM student;";
-$results = mysqli_query($conn,$query);
-if(!$results){
-	echo mysqli_error($conn);
-}
+	require_once('../config.php');
+	$query="select * from student;";
+	$results=mysqli_query($conn,$query);
+	
 
 ?>
-
 <DOCTYPE html>
 <html>
 <head>
@@ -79,11 +75,13 @@ if(!$results){
 				<td><?php echo $students['deleted_at']; ?></td>
 				<td><?php echo $students['deleted_by']; ?></td>
 				<td><button class="button"><a href="../student/edit.php?id=<?php echo $students['id'];?>" >Edit </a></button></td>
-				<td><button class="button"><a href="../student/delete.php?id=<?php echo $students['id'] ?>" onclick ="return confirm('Are you sure !')">Delete </a></button>
-					</td>
+				<td><button class="button"><a href="../student/delete.php?id=<?php echo $students['id'] ?>" onclick ="return confirm('Are you sure !')">Delete </a></button></td>
+				<td><button class="button"><a href="../student/show.php?id=<?php echo $students['id'];?>" >Show </a></button></td>
+				<td><button class="button"><a href="../student/addsubject.php?id=<?php echo $students['id'] ?>">Add Subject </a></button>
+				</td>
 			</tr>
 		<?php } ?>
 	</table></br>
-	<button><a href="create_form.php">Add Employee</a></button>
+	<button><a href="create_form.php">Add Student</a></button>
 </body>
 </html>

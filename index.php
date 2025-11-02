@@ -29,6 +29,8 @@
             font-weight: 800;
             letter-spacing: 1px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+			display:flex;
+			justify-content:space betwwen;
         }
         .sidebar {
             background-color: #E9ECEF;
@@ -83,7 +85,9 @@
 <body>
     <table>
         <tr>
-            <td colspan="2" height="15%" width="100%" >School Management System</td>
+            <td colspan="2" height="15%" width="100%" ><span>School Management System</span><span><button><a href="./login/logout.php" target="_self">Logout</a></button></span></td>
+			
+			
         </tr>
         <tr class="sidebar">
             <td width="20%" height="70%">
@@ -91,16 +95,19 @@
                     <li><a href="student" target="iframe_a">Student</a></li>
                     <li><a href="subject" target="iframe_a">Subject</a></li>
                     <li><a href="grade" target="iframe_a">Grade</a></li>
+					
                 </ul>
             </td>
             <td width="80%">
-                <iframe name="iframe_a" title="Iframe Example"></iframe>
+                <iframe  src="./student/index.php" name="iframe_a" title="Iframe Example"></iframe>
             </td>
         </tr>
         <tr class="footer" width="100%">
             <td colspan="2" height="15%"></td>
+			
         </tr>
     </table>
+	
 </body>
 </html>
 

@@ -1,3 +1,12 @@
+<?php
+	require_once('../config.php');
+	
+	$query = "SELECT id,grade_name FROM grade;";
+	$results = mysqli_query($conn,$query);
+
+
+?>
+
 <DOCTYPE html>
 <html>
 <head>
@@ -35,7 +44,15 @@
 	</tr>
 	<tr>
 		<td><label for="grade_id">Grade Id</label></td>
-		<td><input type="text" name="grade_id" id="grade_id" placeholder = "Enter your Grade id...." maxlength = "10"></td>
+		<td>
+		<select>
+		<?php while($row=mysqli_fetch_assoc($results)){ ?>
+			
+			<option  value="<?php echo $row['id'] ?>"> <?php echo $row['grade_name']; ?></option>
+		<?php } ?>
+		</select>
+		
+		</td>
 	</tr>
 	<tr>
 		<td><label for="nic_number">Nic Number</label></td>
