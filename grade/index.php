@@ -66,6 +66,7 @@ if(!$results){
 				<td><button class="button"><a href="../grade/edit.php?id=<?php echo $grade['id'];?>" >Edit </a></button></td>
 				<td><button class="button"><a href="../grade/delete.php?id=<?php echo $grade['id'] ?>" onclick ="return confirm('Are you sure !')">Delete </a></button>
 					</td>
+				<td><button class="button"><a href="../grade/show.php?id=<?php echo $grade['id'];?>" >Show </a></button></td>
 			</tr>
 		<?php } ?>
 	</table></br>

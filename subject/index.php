@@ -71,6 +71,7 @@ if(!$results){
 				<td><button ><a href="../subject/edit.php?id=<?php echo $subject['id'];?>" >Edit </a></button></td>
 				<td><button ><a href="../subject/delete.php?id=<?php echo $subject['id'] ?>" onclick ="return confirm('Are you sure !')">Delete </a></button>
 					</td>
+				<td><button ><a href="../subject/show.php?id=<?php echo $subject['id'];?>" >Show </a></button></td>
 			</tr>
 		<?php } ?>
 	</table></br>

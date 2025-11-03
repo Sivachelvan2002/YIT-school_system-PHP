@@ -9,7 +9,7 @@
             font-family: "Times New Roman", Times, serif;;
             margin: 0;
             padding: 0;
-            background-color: #CBD99B;
+            
             color: #2F3542;
         }
         table {
@@ -29,8 +29,9 @@
             font-weight: 800;
             letter-spacing: 1px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-			display:flex;
-			justify-content:space betwwen;
+			
+			
+			
         }
         .sidebar {
             background-color: #E9ECEF;
@@ -85,7 +86,7 @@
 <body>
     <table>
         <tr>
-            <td colspan="2" height="15%" width="100%" ><span>School Management System</span><span><button><a href="./login/logout.php" target="_self">Logout</a></button></span></td>
+            <td colspan="2" height="15%" width="100%" ><b>School Management System</b><button><a href="./login/logout.php" target="_self">Logout</a></button></td>
 			
 			
         </tr>
