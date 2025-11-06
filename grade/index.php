@@ -1,5 +1,7 @@
 <?php
+require_once('../auth/session.php');
 require_once('../config.php');
+
 
 $query = "SELECT * FROM grade;";
 $results = mysqli_query($conn,$query);

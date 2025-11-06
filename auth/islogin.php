@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once('../config.php');
 $username=$_POST['username'];
 $password=$_POST['password'];
@@ -14,7 +14,7 @@ if($row==1){
 }
 else{
 	echo "login failed";
-	header("Location: ./login.php");
+	header("Location: login.php");
 }
 
 ?>
