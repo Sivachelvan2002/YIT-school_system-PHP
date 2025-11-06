@@ -77,7 +77,7 @@
 				<td><button class="button"><a href="../student/edit.php?id=<?php echo $students['id'];?>" >Edit </a></button></td>
 				<td><button class="button"><a href="../student/delete.php?id=<?php echo $students['id'] ?>" onclick ="return confirm('Are you sure !')">Delete </a></button></td>
 				<td><button class="button"><a href="../student/show.php?id=<?php echo $students['id'];?>" >Show </a></button></td>
-				<td><button class="button"><a href="../student/addsubject.php?id=<?php echo $students['id'] ?>">Add Subject </a></button>
+				<td><button class="button"><a href="../student/addsubject.php?id=<?php echo $students['id']; ?>">Add Subject </a></button>
 				</td>
 			</tr>
 		<?php } ?>

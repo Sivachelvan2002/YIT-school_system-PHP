@@ -29,9 +29,7 @@
 	$row = mysqli_fetch_array($result);
 	
 	
-	require_once('../config.php');
-	
-	$query1 = "SELECT id,grade_name FROM grade;";
+	$query1 = "SELECT grade_id,grade_name FROM grade;";
 	$results = mysqli_query($conn,$query1);
 
 ?>
@@ -57,9 +55,10 @@
 	<tr>
 		<td><label for="grade_id">Grade Id</label></td>
 		<td>
-		<select>
+		<select name="grade_id">
 		<?php while($row1=mysqli_fetch_assoc($results)){ ?>
-			<option  value="<?php echo $row1['id']; ?>"><?php echo $row1['grade_name'] ?></option>
+		
+			<option  value="<?php echo $row1['grade_id']; ?>"><?php echo $row1['grade_name'] ?></option>
 		<?php } ?>
 		</select>
 		</td>

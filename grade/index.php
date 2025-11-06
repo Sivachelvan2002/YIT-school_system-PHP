@@ -52,7 +52,7 @@ if(!$results){
 		<?php foreach($results as $grade){ ?>
 				
 			<tr>
-				<td><?php echo $grade['id']; ?></td>
+				<td><?php echo $grade['grade_id']; ?></td>
 				<td><?php echo $grade['grade_name']; ?></td>
 				<td><?php echo $grade['grade_group']; ?></td>
 				<td><?php echo $grade['grade_color']; ?></td>
@@ -63,10 +63,12 @@ if(!$results){
 				<td><?php echo $grade['updated_by']; ?></td>
 				<td><?php echo $grade['deleted_at']; ?></td>
 				<td><?php echo $grade['deleted_by']; ?></td>
-				<td><button class="button"><a href="../grade/edit.php?id=<?php echo $grade['id'];?>" >Edit </a></button></td>
-				<td><button class="button"><a href="../grade/delete.php?id=<?php echo $grade['id'] ?>" onclick ="return confirm('Are you sure !')">Delete </a></button>
+				<td><button class="button"><a href="../grade/edit.php?id=<?php echo $grade['grade_id'];?>" >Edit </a></button></td>
+				<td><button class="button"><a href="../grade/delete.php?id=<?php echo $grade['grade_id'] ?>" onclick ="return confirm('Are you sure !')">Delete </a></button>
 					</td>
-				<td><button class="button"><a href="../grade/show.php?id=<?php echo $grade['id'];?>" >Show </a></button></td>
+				<td><button class="button"><a href="../grade/show.php?id=<?php echo $grade['grade_id'];?>" >Show </a></button></td>
+				<td><button class="button"><a href="addsubject.php?id=<?php echo $grade['grade_id']; ?>">Add Subject </a></button>
+				</td>
 			</tr>
 		<?php } ?>
 	</table></br>

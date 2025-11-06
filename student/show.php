@@ -75,6 +75,10 @@
 		<td><label for="address">Address</label></td>
 		<td><input type="text" name="address" id="address" value="<?php echo $row['address']?>"></td>
 	</tr>
+	<tr>
+		<td><label for="subjects">subjects</label></td>
+		<td><input type="checkbox" name="address" id="address" value="<?php echo $row['address']?>"></td>
+	</tr>
 </table> </br>
 	
 

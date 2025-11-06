@@ -25,7 +25,7 @@
 	$id = $_GET['id'];
 	require_once('../config.php');
 	
-	$query = "SELECT * FROM grade WHERE id = '$id' ;";
+	$query = "SELECT * FROM grade WHERE grade_id = '$id' ;";
 	$result = mysqli_query($conn,$query);
 	$row = mysqli_fetch_array($result);
 ?>
@@ -38,7 +38,7 @@
 	<tr>
 		<td><label for="grade_name">Grade Name</label></td>
 		<td><input type="text" name="grade_name" id="grade_name" value="<?php echo $row['grade_name']?>">
-		<input type="hidden" name="id" id="id" value="<?php echo $row['id'] ?>"></td>
+		<input type="hidden" name="id" id="id" value="<?php echo $row['grade_id'] ?>"></td>
 	</tr>
 	<tr>
 		<td><label for="grade_group">Grade Group</label></td>

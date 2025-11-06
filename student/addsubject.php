@@ -1,25 +1,19 @@
-<?php
-	$id = $_GET['id'];
-	require_once('../config.php');
-	
-	$query = "SELECT * FROM student WHERE id = '$id' ;";
-	$result = mysqli_query($conn,$query);
-	$row = mysqli_fetch_array($result);
-
-
-?>
-<DOCTYPE html>
 <html>
 <head>
-<title>Edit-student</title>
 <style>
-	
+	.button{
+		background-color: #6e3e70;
+        color: #E7E7E7;
+        font-size: 2em;
+        font-weight: 600;
+        letter-spacing: 1px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+	}
 	table{
 		border-width:2px;
 		border-style:solid;
-		background-color:#ccc;
+		background-color:pink;
 		text-align:center;
-		align:center;
 	}
 	body {
             font-family: "Times New Roman", Times, serif;;
@@ -30,54 +24,114 @@
 </style>
 </head>
 <body>
-<center>
-<table border="1" cellpadding = "10" cellspacing = "4">
-	<tr>
-		<th colspan = "2"> Student details  </th> 
-	</tr>
-	<tr>
-		<td><label for="father_name">Father Name</label></td>
-		<td><input type="text" name="father_name" id="father_name" value="<?php echo $row['father_name']?>">
-		<input type="hidden" name="id" id="id" value="<?php echo $row['id'] ?>"></td>
-	</tr>
-	<tr>
-		<td><label for="student_name">Student Name</label></td>
-		<td><input type="text" name="student_name" id="student_name" value="<?php echo $row['student_name']?>"></td>
-	</tr>
-	<tr>
-		<td><label for="admission_number">Addmission Number</label></td>
-		<td><input type="text" name="admission_number" id="admission_number" value="<?php echo $row['admission_number']?>"></td>
-	</tr>
-	<tr>
-		<td><label for="grade_id">Grade Id</label></td>
-		<td>
-		<input type="SELECT" name="grade_id" id="grade_id" value="<?php echo $row['grade_id']?>">
-		</td>
-	</tr>
-	<tr>
-		<td><label for="nic_number">NIC Number</label></td>
-		<td><input type="number" name="nic_number" id="nic_number" value="<?php echo $row['nic_number']?>"></td>
-	</tr>
-	<tr>
-		<td><label for="date_of_birth">Date Of Birth</label></td>
-		<td><input type="date" name="date_of_birth" id="date_of_birth" value="<?php echo $row['date_of_birth']?>"></td>
-	</tr>
-	<tr>
-		<td><label for="gender">Gender</label></td>
-		<td><input type="text" name="gender" id="gender" value="<?php echo $row['gender']?>"></td>
-	</tr>
-	<tr>
-		<td><label for="telephone_number">Telephone Number</label></td>
-		<td><input type="text" name="telephone_number" id="telephone_number" value="<?php echo $row['telephone_number']?>"></td>
-	</tr>
-	<tr>
-		<td><label for="address">Address</label></td>
-		<td><input type="text" name="address" id="address" value="<?php echo $row['address']?>"></td>
-	</tr>
-</table> </br>
-	
-
-
-</center>
+    <?php
+	//
+    $id = $_GET["id"];
+    //include('../auth/auth_session.php');
+    include('../config.php');
+    $query = "SELECT * FROM student where id='$id'";
+    $results = mysqli_query($conn, $query);
+    if (!$results) {
+        echo mysqli_error($conn);
+    }
+    $row = mysqli_fetch_array($results);
+    $query1 = "SELECT id, subject_name FROM subject";
+    $results1 = mysqli_query($conn, $query1);
+    if (!$results1) {
+        echo mysqli_error($conn);
+        exit;
+    }
+    $subjects = [];
+    while ($row1 = mysqli_fetch_assoc($results1)) {
+        $subjects[] = $row1;
+    }
+    ?>
+    <table border="1">
+        <tr>
+            <th colspan="2" style="text-align:center;">
+                <h1>Student Details</h1>
+            </th>
+        </tr>
+        <th>Father Name</th>
+        <td><?php echo $row['father_name']; ?></td>
+        </tr>
+        <tr>
+            <th>Student Name</th>
+            <td><?php echo $row["student_name"]; ?></td>
+        </tr>
+        <tr>
+            <th>Addmission No</th>
+            <td><?php echo $row["admission_number"]; ?></td>
+        </tr>
+        <tr>
+            <th>Grade ID</th>
+            <td><?php echo $row["grade_id"]; ?></td>
+        </tr>
+        <tr>
+            <th>Nic</th>
+            <td><?php echo $row["nic_number"]; ?></td>
+        </tr>
+        <tr>
+            <th>Date of Birth</th>
+            <td><?php echo $row["date_of_birth"]; ?></td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td><?php echo $row["gender"]; ?></td>
+        </tr>
+        <tr>
+            <th>Telephone Number</th>
+            <td><?php echo $row["telephone_number"]; ?></td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td><?php echo $row["address"]; ?></td>
+        </tr>
+        <tr>
+            <?php
+            $query2 = "SELECT subject_id FROM student_subject WHERE student_id = $id";
+            $results2 = mysqli_query($conn, $query2);
+            while($row2=mysqli_fetch_assoc($results2)){
+                
+                $results2_array[]=$row2['subject_id'];
+            }
+            ?>
+        </tr>
+        <tr>
+            <th>Assigned Subjects</th>
+            <td>
+                <?php
+                if (!empty($results2_array)) {
+                    foreach ($subjects as $subject) {
+                        if (in_array($subject['id'], $results2_array)) {
+                            echo $subject['subject_name'] . "<br>";
+                        }
+                    }
+                } else {
+                    echo "No subjects assigned.";
+                }
+                ?>
+            </td>
+        </tr>
+        <form action="student_subject_store.php" method="POST">
+            <input type="hidden" name="student_id" value="<?php echo $id; ?>">
+            <tr>
+                <th>Subjects</th>
+                <td>
+                    <?php
+                    foreach ($subjects as $subject) {
+                        echo "<label><input type='checkbox' name='subjects[]' value='{$subject['id']}'> {$subject['subject_name']}</label><br>";
+                    }
+                    ?>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center;">
+                    <input type="submit" value="Submit">
+                </td>
+            </tr>
+        </form>
+		
+    </table>
 </body>
 </html>

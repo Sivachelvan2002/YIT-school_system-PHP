@@ -65,7 +65,7 @@
             box-shadow: 0 3px 14px rgba(0, 0, 0, 0.15);
             border-radius: 10px;
             width: 90%;
-            height: 75%;
+            height: 100%;
             transition: box-shadow 0.3s ease;
         }
         iframe:hover {
@@ -99,7 +99,7 @@
 					
                 </ul>
             </td>
-            <td width="80%">
+            <td width="80%" >
                 <iframe  src="./student/index.php" name="iframe_a" title="Iframe Example"></iframe>
             </td>
         </tr>
