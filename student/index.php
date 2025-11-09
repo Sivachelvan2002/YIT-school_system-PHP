@@ -39,6 +39,7 @@
 	<table border="1" cellpadding = "5" cellspacing = "3">
 			<tr>
 				<td>Id</td>
+				<td>Profile</td>
 				<td>Father Name</td>
 				<td>Student Name</td>
 				<td>Addmission Number</td>
@@ -59,6 +60,7 @@
 				//while($row = mysqli_fetch_assoc($results) ?>
 			<tr>
 				<td><?php echo $students['id']; ?></td>
+				<td><?php echo $students['profile']; ?></td>
 				<td><?php echo $students['father_name']; ?></td>
 				<td><?php echo $students['student_name']; ?></td>
 				<td><?php echo $students['admission_number']; ?></td>

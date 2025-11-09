@@ -1,7 +1,7 @@
 <?php
 	require_once('../config.php');
 	
-	$query = "SELECT id,grade_name FROM grade;";
+	$query = "SELECT grade_id,grade_name FROM grade;";
 	$results = mysqli_query($conn,$query);
 
 
@@ -31,6 +31,10 @@
 		<td><input type="text" name="id" id="id" placeholder = "Enter your id number.." required></td>
 	</tr>
 	<tr>
+		<td><label for="profile">Profile</label></td>
+		<td><input type="file" name="profile" id="profile" accept="image/jpg" ></td>
+	</tr>
+	<tr>
 		<td><label for="father_name">Father Name</label></td>
 		<td><input type="text" name="father_name" id="father_name" placeholder = "Enter the father name..." required></td>
 	</tr>
@@ -48,7 +52,7 @@
 		<select>
 		<?php while($row=mysqli_fetch_assoc($results)){ ?>
 			
-			<option  value="<?php echo $row['id'] ?>"> <?php echo $row['grade_name']; ?></option>
+			<option  value="<?php echo $row['grade_id'] ?>"> <?php echo $row['grade_name']; ?></option>
 		<?php } ?>
 		</select>
 		
