@@ -1,6 +1,7 @@
 <html>
 <head>
 <style>
+
 	.button{
 		background-color: #6e3e70;
         color: #E7E7E7;
@@ -25,7 +26,7 @@
 </head>
 <body>
     <?php
-	//
+	//id
     $id = $_GET["id"];
     //include('../auth/auth_session.php');
     include('../config.php');
