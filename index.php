@@ -88,8 +88,6 @@
     <table>
         <tr>
             <td colspan="2" height="15%" width="100%" ><b>School Management System</b></td>
-			
-			
         </tr>
         <tr class="sidebar">
             <td width="20%" height="70%">
@@ -97,6 +95,7 @@
                     <li><a href="student" target="iframe_a">Student</a></li>
                     <li><a href="subject" target="iframe_a">Subject</a></li>
                     <li><a href="grade" target="iframe_a">Grade</a></li>
+                    <li><a href="grade" target="iframe_a">Logout</a></li>
 					
                 </ul>
             </td>
