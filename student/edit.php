@@ -16,7 +16,18 @@
             background-color:#CBD99B ;
             color: #2F3542;
         }
-
+	img{
+		width:100px;
+		height:100px;
+		border-radius:50%;
+	}
+	.profile td{
+		background-color: #CBD99B;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+	}
 </style>
 </head>
 <body>
@@ -24,26 +35,39 @@
 	$id = $_GET['id'];
 	require_once('../config.php');
 	
-	$query = "SELECT * FROM student WHERE id = '$id' ;";
+	$query = "SELECT * FROM students WHERE id = '$id' ;";
 	$result = mysqli_query($conn,$query);
 	$row = mysqli_fetch_array($result);
 	
 	
-	$query1 = "SELECT grade_id,grade_name FROM grade;";
+	$query1 = "SELECT grade_id,grade_name FROM grades;";
 	$results = mysqli_query($conn,$query1);
 
 ?>
 <center>
-<form action="update.php" method = "POST" autocomplete = "on">
+<form action="update.php" method = "POST" enctype="multipart/form-data" autocomplete = "on">
 <table border="1" cellpadding = "10" cellspacing = "4">
 	<tr>
 		<th colspan = "2"> Edit Student details  </th> 
+	</tr>
+	<tr>
+	<div class="profile">
+		<td colspan="2"> <img src="<?php echo $row['profile']?>" ><br/>
+		
+		<button ><a href="delete_profile.php?id=<?php echo $row['id'] ?>">Delete Image</a></button>
+        <input type="file" name="myfile" id="myfile" accept="image/jpg"  >
+		
+		</td>
+	</div>
+		
+	
 	</tr>
 	<tr>
 		<td><label for="father_name">Father Name</label></td>
 		<td><input type="text" name="father_name" id="father_name" value="<?php echo $row['father_name']?>">
 		<input type="hidden" name="id" id="id" value="<?php echo $row['id'] ?>"></td>
 	</tr>
+	
 	<tr>
 		<td><label for="student_name">Student Name</label></td>
 		<td><input type="text" name="student_name" id="student_name" value="<?php echo $row['student_name']?>"></td>

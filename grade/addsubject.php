@@ -28,8 +28,8 @@
 	 require_once('../config.php');
     $id = $_GET["id"];
     //include('../auth/auth_session.php');
-   
-    $query = "SELECT * FROM grade WHERE grade_id='$id'";
+   //fetch grade details from grade
+    $query = "SELECT * FROM grades WHERE grade_id='$id'";
     $results = mysqli_query($conn, $query);
     if (!$results) {
          echo mysqli_error($conn);
@@ -38,16 +38,31 @@
     $row = mysqli_fetch_assoc($results);
 	
 	$subject_ids=[];
+	//fetch details from grade_subject table
 	$query2="SELECT * FROM grade_subject WHERE grade_id=$id";
 	$results2=mysqli_query($conn,$query2);
 	while($row2=mysqli_fetch_assoc($results2)){
 		$subject_ids[]= $row2['subject_id'];
 		
 	}
+	//fetch id,subject_name from subject
+    $query1 = "SELECT id, subject_name FROM subjects";
+    $results1 = mysqli_query($conn, $query1);
+    if (!$results1) {
+        echo mysqli_error($conn);
+        exit;
+    }
+    $subjects = [];
+	//assign every row of id,subject_name to $subjects[]
+    while ($row1 = mysqli_fetch_assoc($results1)) {
+        $subjects[] = $row1;
+    }
+    ?>
+	
 	
     
 	
-    ?>
+    
     <table border="1">
         <tr>
             <th colspan="2" style="text-align:center;">
@@ -63,7 +78,7 @@
         </tr>
         <tr>
             <th>Grade Color</th>
-            <td><?php echo $row["grade_color"]; ?></td>
+            <td><input type="color" value="<?php echo $row["grade_color"]; ?>"></td>
         </tr>
         <tr>
             <th>Grade Order</th>
@@ -73,16 +88,15 @@
             <th>Assigned Subjects</th>
             <td>
                 <?php
-					$subjects = [];
-					foreach($subject_ids as $subject){
-					$query1 = "SELECT id, subject_name FROM subject WHERE id=$subject";
-					$results1 = mysqli_query($conn, $query1);
-					$row=mysqli_fetch_assoc($results1);
-					echo $row['subject_name']."<br/>";
-					
-		
-				}
-                
+                if (!empty($subject_ids)) {
+                    foreach ($subjects as $subject) {
+                        if (in_array($subject['id'], $subject_ids)) {
+                            echo $subject['subject_name'] . "<br>";
+                        }
+                    }
+                } else {
+                    echo "No subjects assigned.";
+                }
                 ?>
             </td>
         </tr>
@@ -91,11 +105,16 @@
             <tr>
                 <th>Subjects</th>
                 <td>
-                    <?php
-                    foreach ($subjects as $subject) {
-                        echo "<label><input type='checkbox' name='subjects[]' value='{$subject['id']}'> {$subject['subject_name']}</label><br>";
-                    }
-                    ?>
+				<?php
+                    foreach ($subjects as $subject) { ?>
+						
+                        <input type='checkbox' name='subjects[]' 
+                        value="<?php echo $subject['id'] ?>" 
+                        <?php if (in_array($subject['id'], $subject_ids)){echo "checked";} ?>>
+                        <?php echo $subject['subject_name'] ?><br>
+						<?php }
+                    
+                 ?>
                 </td>
             </tr>
             <tr>

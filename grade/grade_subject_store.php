@@ -13,6 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo mysqli_error($conn);
         }
     }
-    header("location:index.php");
+    header("location:addsubject.php?id=$grade_id");
 }
 ?>

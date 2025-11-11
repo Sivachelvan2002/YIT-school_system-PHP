@@ -1,7 +1,7 @@
 <?php require_once('auth/session.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head >
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>School-System</title>
@@ -87,7 +87,7 @@
 <body>
     <table>
         <tr>
-            <td colspan="2" height="15%" width="100%" ><b>School Management System</b><button><a href="auth/logout.php" target="_self">Logout</a></button></td>
+            <td colspan="2" height="15%" width="100%" ><b>School Management System</b></td>
 			
 			
         </tr>

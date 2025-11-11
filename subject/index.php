@@ -1,7 +1,7 @@
 <?php
 require_once('../config.php');
 
-$query = "SELECT * FROM subject;";
+$query = "SELECT * FROM subjects;";
 $results = mysqli_query($conn,$query);
 if(!$results){
 	echo mysqli_error($conn);
@@ -46,12 +46,7 @@ if(!$results){
 				<td>Subject Order</td>
 				<td>Subject Color</td>
 				<td>Subject Number</td>
-				<td>Created-at</td>
-				<td>Created-by</td>
-				<td>Updated-at</td>
-				<td>Updated-by</td>
-				<td>Deleted-at</td>
-				<td>Deleted-by</td>
+				
 			</tr>
 		<?php foreach($results as $subject){ ?>
 				
@@ -60,14 +55,8 @@ if(!$results){
 				<td><?php echo $subject['subject_name']; ?></td>
 				<td><?php echo $subject['subject_index']; ?></td>
 				<td><?php echo $subject['subject_order']; ?></td>
-				<td><?php echo $subject['subject_color']; ?></td>
+				<td><input type="color" value="<?php echo $subject['subject_color']; ?>"></td>
 				<td><?php echo $subject['subject_number']; ?></td>
-				<td><?php echo $subject['created_at']; ?></td>
-				<td><?php echo $subject['created_by']; ?></td>
-				<td><?php echo $subject['updated_at']; ?></td>
-				<td><?php echo $subject['updated_by']; ?></td>
-				<td><?php echo $subject['deleted_at']; ?></td>
-				<td><?php echo $subject['deleted_by']; ?></td>
 				<td><button ><a href="../subject/edit.php?id=<?php echo $subject['id'];?>" >Edit </a></button></td>
 				<td><button ><a href="../subject/delete.php?id=<?php echo $subject['id'] ?>" onclick ="return confirm('Are you sure !')">Delete </a></button>
 					</td>

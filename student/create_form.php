@@ -1,7 +1,7 @@
 <?php
 	require_once('../config.php');
 	
-	$query = "SELECT grade_id,grade_name FROM grade;";
+	$query = "SELECT grade_id,grade_name FROM grades;";
 	$results = mysqli_query($conn,$query);
 
 
@@ -21,7 +21,7 @@
 </head>
 <body>
 <center>
-<form action="store.php" method = "POST" autocomplete = "on">
+<form action="store.php" method="POST" enctype="multipart/form-data" autocomplete="on">
 <table border="1" cellpadding = "10" cellspacing = "0">
 	<tr>
 		<th colspan = "2"> Student Registation </th> 
@@ -49,7 +49,7 @@
 	<tr>
 		<td><label for="grade_id">Grade Id</label></td>
 		<td>
-		<select>
+		<select  name="grade_id" id="grade_id">
 		<?php while($row=mysqli_fetch_assoc($results)){ ?>
 			
 			<option  value="<?php echo $row['grade_id'] ?>"> <?php echo $row['grade_name']; ?></option>

@@ -30,23 +30,27 @@
     $id = $_GET["id"];
     //include('../auth/auth_session.php');
     include('../config.php');
-    $query = "SELECT * FROM student where id='$id'";
+	//fetch Student details
+    $query = "SELECT * FROM students where id='$id'";
     $results = mysqli_query($conn, $query);
     if (!$results) {
         echo mysqli_error($conn);
     }
     $row = mysqli_fetch_array($results);
-    $query1 = "SELECT id, subject_name FROM subject";
+	//fetch id,subject_name from subject
+    $query1 = "SELECT id, subject_name FROM subjects";
     $results1 = mysqli_query($conn, $query1);
     if (!$results1) {
         echo mysqli_error($conn);
         exit;
     }
     $subjects = [];
+	//assign every row of id,subject_name to $subjects[]
     while ($row1 = mysqli_fetch_assoc($results1)) {
         $subjects[] = $row1;
     }
     ?>
+	
     <table border="1">
         <tr>
             <th colspan="2" style="text-align:center;">
@@ -90,8 +94,10 @@
         </tr>
         <tr>
             <?php
+			//fetch subject_id from student_subject table
             $query2 = "SELECT subject_id FROM student_subject WHERE student_id = $id";
             $results2 = mysqli_query($conn, $query2);
+			//assign subject_id to $results2_array
             while($row2=mysqli_fetch_assoc($results2)){
                 
                 $results2_array[]=$row2['subject_id'];
@@ -120,9 +126,14 @@
                 <th>Subjects</th>
                 <td>
                     <?php
-                    foreach ($subjects as $subject) {
-                        echo "<label><input type='checkbox' name='subjects[]' value='{$subject['id']}'> {$subject['subject_name']}</label><br>";
-                    }
+                    foreach ($subjects as $subject) { ?>
+						
+                        <input type='checkbox' name='subjects[]' 
+                        value="<?php echo $subject['id'] ?>" 
+                        <?php if (in_array($subject['id'], $results2_array)){echo "checked";} ?>>
+                        <?php echo $subject['subject_name'] ?><br>
+						<?php }
+                    
                     ?>
                 </td>
             </tr>

@@ -3,7 +3,7 @@ require_once('../auth/session.php');
 require_once('../config.php');
 
 
-$query = "SELECT * FROM grade;";
+$query = "SELECT * FROM grades;";
 $results = mysqli_query($conn,$query);
 if(!$results){
 	echo mysqli_error($conn);
@@ -44,12 +44,7 @@ if(!$results){
 				<td>Grade Group</td>
 				<td>Grade Color</td>
 				<td>Grade Order</td>
-				<td>Created-at</td>
-				<td>Created-by</td>
-				<td>Updated-at</td>
-				<td>Updated-by</td>
-				<td>Deleted-at</td>
-				<td>Deleted-by</td>
+				
 			</tr>
 		<?php foreach($results as $grade){ ?>
 				
@@ -57,16 +52,10 @@ if(!$results){
 				<td><?php echo $grade['grade_id']; ?></td>
 				<td><?php echo $grade['grade_name']; ?></td>
 				<td><?php echo $grade['grade_group']; ?></td>
-				<td><?php echo $grade['grade_color']; ?></td>
+				<td><input type="color" value="<?php echo $grade['grade_color']; ?>"</td>
 				<td><?php echo $grade['grade_order']; ?></td>
-				<td><?php echo $grade['created_at']; ?></td>
-				<td><?php echo $grade['created_by']; ?></td>
-				<td><?php echo $grade['updated_at']; ?></td>
-				<td><?php echo $grade['updated_by']; ?></td>
-				<td><?php echo $grade['deleted_at']; ?></td>
-				<td><?php echo $grade['deleted_by']; ?></td>
 				<td><button class="button"><a href="../grade/edit.php?id=<?php echo $grade['grade_id'];?>" >Edit </a></button></td>
-				<td><button class="button"><a href="../grade/delete.php?id=<?php echo $grade['grade_id'] ?>" onclick ="return confirm('Are you sure !')">Delete </a></button>
+				<td><button class="button"><a href="../grade/delete.php?id=<?php echo $grade['grade_id'];?>" onclick ="return confirm('Are you sure !')">Delete </a></button>
 					</td>
 				<td><button class="button"><a href="../grade/show.php?id=<?php echo $grade['grade_id'];?>" >Show </a></button></td>
 				<td><button class="button"><a href="addsubject.php?id=<?php echo $grade['grade_id']; ?>">Add Subject </a></button>

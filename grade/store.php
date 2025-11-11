@@ -8,7 +8,7 @@ if($_SERVER ["REQUEST_METHOD"] == "POST" ){
 	
 	
 	require_once('../config.php');
-	$query = "INSERT INTO grade(id,grade_name,grade_group,grade_color,grade_order) VALUES('$id','$grade_name','$grade_group','$grade_color','$grade_order');";
+	$query = "INSERT INTO grades(id,grade_name,grade_group,grade_color,grade_order) VALUES('$id','$grade_name','$grade_group','$grade_color','$grade_order');";
 	$results = mysqli_query($conn,$query);
 	
 	if(!$results){

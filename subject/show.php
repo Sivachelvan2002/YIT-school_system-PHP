@@ -2,7 +2,7 @@
 	$id = $_GET['id'];
 	require_once('../config.php');
 	
-	$query = "SELECT * FROM subject WHERE id = '$id' ;";
+	$query = "SELECT * FROM subjects WHERE id = '$id' ;";
 	$result = mysqli_query($conn,$query);
 	$row = mysqli_fetch_array($result);
 
@@ -51,7 +51,7 @@
 	</tr>
 	<tr>
 		<td><label for="subject_color">Subject Color</label></td>
-		<td><input type="text" name="subject_color" id="subject_color" value="<?php echo $row['subject_color']?>"></td>
+		<td><input type="color" name="subject_color" id="subject_color" value="<?php echo $row['subject_color']?>"></td>
 	</tr>
 	<tr>
 		<td><label for="subject_number">Subject Number</label></td>

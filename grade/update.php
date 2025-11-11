@@ -8,7 +8,7 @@ if($_SERVER ["REQUEST_METHOD"] == "POST" ){
 	
 	
 	require_once('../config.php');
-	$query = "UPDATE grade SET grade_name = '$grade_name' ,grade_group = '$grade_group',grade_color = '$grade_color',grade_order = '$grade_order' WHERE grade_id ='$id'; ";
+	$query = "UPDATE grades SET grade_name = '$grade_name' ,grade_group = '$grade_group',grade_color = '$grade_color',grade_order = '$grade_order' WHERE grade_id ='$id'; ";
 	$results = mysqli_query($conn,$query);
 	
 	if(!$results){

@@ -9,7 +9,7 @@ if($_SERVER ["REQUEST_METHOD"] == "POST" ){
 	
 	
 	require_once('../config.php');
-	$query = "INSERT INTO subject(id,subject_name,subject_index,subject_order,subject_color,subject_number) VALUES('$id','$subject_name','$subject_index','$subject_order','$subject_color','$subject_number');";
+	$query = "INSERT INTO subjects(id,subject_name,subject_index,subject_order,subject_color,subject_number) VALUES('$id','$subject_name','$subject_index','$subject_order','$subject_color','$subject_number');";
 	$results = mysqli_query($conn,$query);
 	
 	if(!$results){

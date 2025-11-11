@@ -3,7 +3,7 @@ $id = $_GET['id'];
 
 require_once('../config.php');
 
-$query = "	DELETE FROM subject WHERE id='$id'";
+$query = "	DELETE FROM subjects WHERE id='$id'";
 $result = mysqli_query($conn,$query);
 
 if($result){

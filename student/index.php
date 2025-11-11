@@ -1,6 +1,6 @@
 <?php
 	require_once('../config.php');
-	$query="select * from student;";
+	$query="select * from students;";
 	$results=mysqli_query($conn,$query);
 	
 
@@ -30,6 +30,11 @@
             background-color:#CBD99B ;
             color: #2F3542;
         }
+	img{
+		width:100px;
+		height:100px;
+		border-radius:50%;
+	}
 
 </style>
 </head>
@@ -49,18 +54,13 @@
 				<td>Gender</td>
 				<td>Telephone Number</td>
 				<td>Address</td>
-				<td>Created-at</td>
-				<td>Created-by</td>
-				<td>Updated-at</td>
-				<td>Updated-by</td>
-				<td>Deleted-at</td>
-				<td>Deleted-by</td>
+				
 			</tr>
 		<?php foreach($results as $students){ 
 				//while($row = mysqli_fetch_assoc($results) ?>
 			<tr>
 				<td><?php echo $students['id']; ?></td>
-				<td><?php echo $students['profile']; ?></td>
+				<td><img src="<?php echo $students['profile']; ?>"></td>
 				<td><?php echo $students['father_name']; ?></td>
 				<td><?php echo $students['student_name']; ?></td>
 				<td><?php echo $students['admission_number']; ?></td>
@@ -70,12 +70,6 @@
 				<td><?php echo $students['gender']; ?></td>
 				<td><?php echo $students['telephone_number']; ?></td>
 				<td><?php echo $students['address']; ?></td>
-				<td><?php echo $students['created_at']; ?></td>
-				<td><?php echo $students['created_by']; ?></td>
-				<td><?php echo $students['updated_at']; ?></td>
-				<td><?php echo $students['updated_by']; ?></td>
-				<td><?php echo $students['deleted_at']; ?></td>
-				<td><?php echo $students['deleted_by']; ?></td>
 				<td><button class="button"><a href="../student/edit.php?id=<?php echo $students['id'];?>" >Edit </a></button></td>
 				<td><button class="button"><a href="../student/delete.php?id=<?php echo $students['id'] ?>" onclick ="return confirm('Are you sure !')">Delete </a></button></td>
 				<td><button class="button"><a href="../student/show.php?id=<?php echo $students['id'];?>" >Show </a></button></td>
