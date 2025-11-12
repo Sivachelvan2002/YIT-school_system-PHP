@@ -95,7 +95,7 @@
                     <li><a href="student" target="iframe_a">Student</a></li>
                     <li><a href="subject" target="iframe_a">Subject</a></li>
                     <li><a href="grade" target="iframe_a">Grade</a></li>
-                    <li><a href="grade" target="iframe_a">Logout</a></li>
+                    <li><a href="auth/logout.php" target="">Logout</a></li>
 					
                 </ul>
             </td>

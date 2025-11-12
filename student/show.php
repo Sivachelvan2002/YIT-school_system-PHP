@@ -97,7 +97,19 @@ while ($row1 = mysqli_fetch_assoc($results1)) {
 				</tr>
 				<tr>
 					<td><label for="gender">Gender</label></td>
-					<td><input type="text" name="gender" id="gender" value="<?php echo $row['gender'] ?>"></td>
+					<td>
+						<input type="radio" name="gender" id="male" value="male"
+							<?php if ($row['gender'] == 'male') echo 'checked'; ?>>
+						<label for="male">Male</label>
+
+						<input type="radio" name="gender" id="female" value="female"
+							<?php if ($row['gender'] == 'female') echo 'checked'; ?>>
+						<label for="female">Female</label>
+
+						<input type="radio" name="gender" id="other" value="other"
+							<?php if ($row['gender'] == 'other') echo 'checked'; ?>>
+						<label for="other">Other</label>
+					</td>
 				</tr>
 				<tr>
 					<td><label for="telephone_number">Telephone Number</label></td>

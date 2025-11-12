@@ -28,7 +28,7 @@
 	</tr>
 	<tr>
 		<td><label for="id">Id</label></td>
-		<td><input type="text" name="id" id="id" placeholder = "Enter your id number.." required></td>
+		<td><input type="text" name="id" id="id" placeholder = "" required></td>
 	</tr>
 	<tr>
 		<td><label for="profile">Profile</label></td>
@@ -36,15 +36,15 @@
 	</tr>
 	<tr>
 		<td><label for="father_name">Father Name</label></td>
-		<td><input type="text" name="father_name" id="father_name" placeholder = "Enter the father name..." required></td>
+		<td><input type="text" name="father_name" id="father_name" placeholder = "" required></td>
 	</tr>
 	<tr>
 		<td><label for="student_name">Student Name</label></td>
-		<td><input type="text" name="student_name" id="student_name" placeholder = "Enter the student name..." required></td>
+		<td><input type="text" name="student_name" id="student_name" placeholder = "" required></td>
 	</tr>
 	<tr>
 		<td><label for="admission_number">Addmission Number</label></td>
-		<td><input type="text" name="admission_number" id="admission_number" placeholder = "Enter your Addmission Number..." required></td>
+		<td><input type="text" name="admission_number" id="admission_number" placeholder = "" required></td>
 	</tr>
 	<tr>
 		<td><label for="grade_id">Grade Id</label></td>
@@ -68,7 +68,11 @@
 	</tr>
 	<tr>
 		<td><label for="gender">Gender</label></td>
-		<td><input type="text" name="gender" id="gender" ></td>
+    	<td>
+        <input type="radio" name="gender" id="male" value="Male" required> <label for="male">Male</label>
+        <input type="radio" name="gender" id="female" value="Female"> <label for="female">Female</label>
+        <input type="radio" name="gender" id="other" value="Other"> <label for="other">Other</label>
+    	</td>
 	</tr>
 	<tr>
 		<td><label for="telepone_number">Telephone Number</label></td>

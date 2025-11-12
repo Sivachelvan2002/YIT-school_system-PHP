@@ -35,27 +35,27 @@
 	</tr>
 	<tr>
 		<td><label for="id">Id</label></td>
-		<td><input type="text" name="id" id="id" placeholder = "Enter your id number.." required></td>
+		<td><input type="text" name="id" id="id" placeholder = "" required></td>
 	</tr>
 	<tr>
 		<td><label for="subject_name">Subject Name</label></td>
-		<td><input type="text" name="subject_name" id="subject_name" placeholder = "Enter the Subject name..." required></td>
+		<td><input type="text" name="subject_name" id="subject_name" placeholder = "" required></td>
 	</tr>
 	<tr>
 		<td><label for="subject_index">Subject Index</label></td>
-		<td><input type="text" name="subject_index" id="subject_index" placeholder = "Enter the subject index..." required></td>
+		<td><input type="text" name="subject_index" id="subject_index" placeholder = "" required></td>
 	</tr>
 	<tr>
 		<td><label for="subject_order">Subject Order</label></td>
-		<td><input type="text" name="subject_order" id="subject_order" placeholder = "Enter your subject order..." required></td>
+		<td><input type="text" name="subject_order" id="subject_order" placeholder = "" required></td>
 	</tr>
 	<tr>
 		<td><label for="subject_color">Subject Color</label></td>
-		<td><input type="text" name="subject_color" id="subject_color" placeholder = "Enter your Subject Color...." maxlength = "10"></td>
+		<td><input type="text" name="subject_color" id="subject_color" placeholder = "" maxlength = "10"></td>
 	</tr>
 	<tr>
 		<td><label for="subject_number">Subject Number</label></td>
-		<td><input type="text" name="subject_number" id="subject_number" placeholder = "Enter your Subject Number...." maxlength = "10"></td>
+		<td><input type="text" name="subject_number" id="subject_number" placeholder = "" maxlength = "10"></td>
 	</tr>
 	
 </table> 

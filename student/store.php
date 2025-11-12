@@ -16,6 +16,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$address = $_POST['address'];
 
 	require_once('../config.php');
+	//check admission number 
+	$checkQuery = "SELECT * FROM students WHERE admission_number = '$admission_number'";
+	$checkResult = mysqli_query($conn, $checkQuery);
+
+	if (mysqli_num_rows($checkResult) > 0) {
+		echo "<script>
+            alert('Admission number already exists!');
+            window.history.back();
+            </script>";
+		exit();
+	}
+
+	
 	if (isset($file) && $file['name'] != '') {
 		$target_dir = "../upload/";
 		$target_file = $target_dir . basename($file["name"]);
@@ -42,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	if (!$results) {
 		echo mysqli_error($conn);
 	}
-	//header("Location: index.php");
+	header("Location: index.php");
 	exit();
 }
+?>
