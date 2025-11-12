@@ -5,7 +5,7 @@ if($_SERVER ["REQUEST_METHOD"] == "POST" ){
 	$grade_group = $_POST['grade_group'];
 	$grade_color = $_POST['grade_color'];
 	$grade_order = $_POST['grade_order'];
-	
+	require_once('../config.php');
 	//check grade name already exist or not
 	$checkQuery_name = "SELECT * FROM grades WHERE grade_name = '$grade_name'";
 	$checkResult_name = mysqli_query($conn, $checkQuery_name);
@@ -24,7 +24,7 @@ if($_SERVER ["REQUEST_METHOD"] == "POST" ){
 	if(!$results){
 		echo mysqli_error($conn);
 	}
-	header("Location: ?section=grade&page=index");
+	header("Location:../index.php?section=grade&page=index");
 }
 
 ?>

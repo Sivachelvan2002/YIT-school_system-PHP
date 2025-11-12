@@ -72,7 +72,7 @@
                 ?>
             </td>
         </tr>
-        <form action="?section=grade&page=grade_subject_store" method="POST">
+        <form action="grade/grade_subject_store.php" method="POST">
             <input type="hidden" name="grade_id" value="<?php echo $id; ?>">
             <tr>
                 <th>Subjects</th>

@@ -1,4 +1,5 @@
-<?php //include('../auth/session.php'); ?>
+<?php //include('../auth/session.php');
+require_once('../config.php'); ?>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $grade_id = $_POST["grade_id"];
@@ -12,6 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo mysqli_error($conn);
         }
     }
-    header("location: ?section=grade&page=addsubject&id=$grade_id");
+    header("location: ../index.php?section=grade&page=addsubject&id=$grade_id");
 }
 ?>

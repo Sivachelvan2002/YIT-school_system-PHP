@@ -7,7 +7,7 @@
 	$row = mysqli_fetch_array($result);
 ?>
 
-<form action="?section=grade&page=update" method = "POST" autocomplete = "on">
+<form action="grade/update.php" method = "POST" autocomplete = "on">
 <table border="1" cellpadding = "10" cellspacing = "4">
 	<tr>
 		<th colspan = "2"> Edit Grade details  </th> 

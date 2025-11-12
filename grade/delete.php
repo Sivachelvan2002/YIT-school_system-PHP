@@ -7,7 +7,7 @@ $result = mysqli_query($conn,$query);
 
 if($result){
 	echo "query executed successfully...";
-	header("Location:?section=grade&page=index");
+	header("Location:../index.php?section=grade&page=index");
 }
 else{
 	echo ("query not executed..").mysqli_error($conn);
