@@ -33,10 +33,7 @@
 	<tr>
 		<th colspan = "2"> Subject Registation </th> 
 	</tr>
-	<tr>
-		<td><label for="id">Id</label></td>
-		<td><input type="text" name="id" id="id" placeholder = "" required></td>
-	</tr>
+	
 	<tr>
 		<td><label for="subject_name">Subject Name</label></td>
 		<td><input type="text" name="subject_name" id="subject_name" placeholder = "" required></td>

@@ -7,8 +7,31 @@ if($_SERVER ["REQUEST_METHOD"] == "POST" ){
 	$subject_color = $_POST['subject_color'];
 	$subject_number = $_POST['subject_number'];
 	
-	
 	require_once('../config.php');
+	//check subject name already exist or not
+	$checkQuery_name = "SELECT * FROM subjects WHERE subject_name = '$subject_name'";
+	$checkResult_name = mysqli_query($conn, $checkQuery_name);
+
+	if (mysqli_num_rows($checkResult_name) > 0) {
+		echo "<script>
+            alert('Subject Index already exists!');
+            window.history.back();
+            </script>";
+		exit();
+	}
+	
+	//check subject index already exist or not
+	$checkQuery_index = "SELECT * FROM subjects WHERE subject_index = '$subject_index'";
+	$checkResult_index = mysqli_query($conn, $checkQuery_index);
+
+	if (mysqli_num_rows($checkResult_index) > 0) {
+		echo "<script>
+            alert('Subject Name already exists!');
+            window.history.back();
+            </script>";
+		exit();
+	}
+
 	$query = "INSERT INTO subjects(id,subject_name,subject_index,subject_order,subject_color,subject_number) VALUES('$id','$subject_name','$subject_index','$subject_order','$subject_color','$subject_number');";
 	$results = mysqli_query($conn,$query);
 	
