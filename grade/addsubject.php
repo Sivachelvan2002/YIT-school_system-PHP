@@ -1,51 +1,23 @@
-<html>
-<head>
-<style>
-	.button{
-		background-color: #6e3e70;
-        color: #E7E7E7;
-        font-size: 2em;
-        font-weight: 600;
-        letter-spacing: 1px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-	}
-	table{
-		border-width:2px;
-		border-style:solid;
-		background-color:pink;
-		text-align:center;
-	}
-	body {
-            font-family: "Times New Roman", Times, serif;;
-            background-color:#CBD99B ;
-            color: #2F3542;
-        }
-
-</style>
-</head>
-<body>
     <?php
-	 require_once('../config.php');
     $id = $_GET["id"];
     //include('../auth/auth_session.php');
-   //fetch grade details from grade
+    //fetch grade details from grade
     $query = "SELECT * FROM grades WHERE grade_id='$id'";
     $results = mysqli_query($conn, $query);
     if (!$results) {
-         echo mysqli_error($conn);
-		 exit();
+        echo mysqli_error($conn);
+        exit();
     }
     $row = mysqli_fetch_assoc($results);
-	
-	$subject_ids=[];
-	//fetch details from grade_subject table
-	$query2="SELECT * FROM grade_subject WHERE grade_id=$id";
-	$results2=mysqli_query($conn,$query2);
-	while($row2=mysqli_fetch_assoc($results2)){
-		$subject_ids[]= $row2['subject_id'];
-		
-	}
-	//fetch id,subject_name from subject
+
+    $subject_ids = [];
+    //fetch details from grade_subject table
+    $query2 = "SELECT * FROM grade_subject WHERE grade_id=$id";
+    $results2 = mysqli_query($conn, $query2);
+    while ($row2 = mysqli_fetch_assoc($results2)) {
+        $subject_ids[] = $row2['subject_id'];
+    }
+    //fetch id,subject_name from subject
     $query1 = "SELECT id, subject_name FROM subjects";
     $results1 = mysqli_query($conn, $query1);
     if (!$results1) {
@@ -53,16 +25,16 @@
         exit;
     }
     $subjects = [];
-	//assign every row of id,subject_name to $subjects[]
+    //assign every row of id,subject_name to $subjects[]
     while ($row1 = mysqli_fetch_assoc($results1)) {
         $subjects[] = $row1;
     }
     ?>
-	
-	
-    
-	
-    
+
+
+
+
+
     <table border="1">
         <tr>
             <th colspan="2" style="text-align:center;">
@@ -100,21 +72,23 @@
                 ?>
             </td>
         </tr>
-        <form action="grade_subject_store.php" method="POST">
+        <form action="?section=grade&page=grade_subject_store" method="POST">
             <input type="hidden" name="grade_id" value="<?php echo $id; ?>">
             <tr>
                 <th>Subjects</th>
                 <td>
-				<?php
+                    <?php
                     foreach ($subjects as $subject) { ?>
-						
-                        <input type='checkbox' name='subjects[]' 
-                        value="<?php echo $subject['id'] ?>" 
-                        <?php if (in_array($subject['id'], $subject_ids)){echo "checked";} ?>>
+
+                        <input type='checkbox' name='subjects[]'
+                            value="<?php echo $subject['id'] ?>"
+                            <?php if (in_array($subject['id'], $subject_ids)) {
+                                echo "checked";
+                            } ?>>
                         <?php echo $subject['subject_name'] ?><br>
-						<?php }
-                    
-                 ?>
+                    <?php }
+
+                    ?>
                 </td>
             </tr>
             <tr>
@@ -123,7 +97,5 @@
                 </td>
             </tr>
         </form>
-		
+
     </table>
-</body>
-</html>

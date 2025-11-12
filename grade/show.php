@@ -1,6 +1,5 @@
 <?php
 	$id = $_GET['id'];
-	require_once('../config.php');
 	
 	$query = "SELECT * FROM grades WHERE grade_id = '$id' ;";
 	$result = mysqli_query($conn,$query);
@@ -8,29 +7,7 @@
 
 
 ?>
-<DOCTYPE html>
-<html>
-<head>
-<title>show-Grade</title>
-<style>
-	
-	table{
-		border-width:2px;
-		border-style:solid;
-		background-color:#ccc;
-		text-align:center;
-		align:center;
-	}
-	body {
-            font-family: "Times New Roman", Times, serif;;
-            background-color:#CBD99B ;
-            color: #2F3542;
-        }
 
-</style>
-</head>
-<body>
-<center>
 <h2>Grade Details</h2>
 <table border="1" cellpadding = "10" cellspacing = "4">
 	<tr>
@@ -58,6 +35,3 @@
 	
 </table> </br>
 
-</center>
-</body>
-</html>

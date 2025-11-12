@@ -1,34 +1,7 @@
-<DOCTYPE html>
-<html>
-<head>
-<title>Grade creation</title>
-<style>
-	
-	table{
-		border-width:2px;
-		border-style:solid;
-		background-color:#ccc;
-		text-align:center;
-		align:center;
-	}
-	body {
-            font-family: "Times New Roman", Times, serif;;
-            background-color:#568F87 ;
-            color: #2F3542;
-        }
-
-</style>
-</head>
-<body>
-<center>
-<form action="store.php" method = "POST" autocomplete = "on">
+<form action="?section=grade&page=store" method = "POST" autocomplete = "on">
 <table border="1" cellpadding = "10" cellspacing = "0">
 	<tr>
 		<th colspan = "2"> Grade Registation </th> 
-	</tr>
-	<tr>
-		<td><label for="id">Id</label></td>
-		<td><input type="text" name="id" id="id" placeholder = "Enter your id number.." required></td>
 	</tr>
 	<tr>
 		<td><label for="grade_name">Grade Name</label></td>
@@ -49,9 +22,5 @@
 	
 </table> </br>
 <input type="reset" value="Reset"> <input type="submit" value="Add">
-	
-
 </form>
-</center>
-</body>
-</html>
+

@@ -1,6 +1,6 @@
 <?php
-require_once('../auth/session.php');
-require_once('../config.php');
+require_once('auth/session.php');
+require_once('config.php');
 
 
 $query = "SELECT * FROM grades;";
@@ -10,31 +10,6 @@ if(!$results){
 }
 
 ?>
-
-<DOCTYPE html>
-<html>
-<head>
-<style>
-<title>Grade-Details</title>
-<style>
-	.button {
-		background-color:#ccc; 
-	}
-	table{
-		border-width:2px;
-		border-style:solid;
-		background-color:pink;
-		text-align:center;
-	}
-	body {
-            font-family: "Times New Roman", Times, serif;;
-            background-color:#568F87 ;
-            color: #2F3542;
-        }
-
-</style>
-</head>
-<body>
 <h2><center>Grade Details</center></h2>
 <hr/>
 	<table border="1" cellpadding = "5" cellspacing = "3">
@@ -54,15 +29,15 @@ if(!$results){
 				<td><?php echo $grade['grade_group']; ?></td>
 				<td><input type="color" value="<?php echo $grade['grade_color']; ?>"</td>
 				<td><?php echo $grade['grade_order']; ?></td>
-				<td><button class="button"><a href="../grade/edit.php?id=<?php echo $grade['grade_id'];?>" >Edit </a></button></td>
-				<td><button class="button"><a href="../grade/delete.php?id=<?php echo $grade['grade_id'];?>" onclick ="return confirm('Are you sure !')">Delete </a></button>
+				<td><button class="button"><a href="?section=grade&page=edit&id=<?php echo $grade['grade_id'];?>" >Edit </a></button></td>
+				<td><button class="button"><a href="?section=grade&page=delete&id=<?php echo $grade['grade_id'];?>" onclick ="return confirm('Are you sure !')">Delete </a></button>
 					</td>
-				<td><button class="button"><a href="../grade/show.php?id=<?php echo $grade['grade_id'];?>" >Show </a></button></td>
-				<td><button class="button"><a href="addsubject.php?id=<?php echo $grade['grade_id']; ?>">Add Subject </a></button>
+				<td><button class="button"><a href="?section=grade&page=show&id=<?php echo $grade['grade_id'];?>" >Show </a></button></td>
+				<td><button class="button"><a href="?section=grade&page=addsubject&id=<?php echo $grade['grade_id']; ?>">Add Subject </a></button>
 				</td>
 			</tr>
 		<?php } ?>
 	</table></br>
-	<button><a href="create_form.php">Add Grade</a></button>
+	<button><a href="?section=grade&page=create_form">Add Grade</a></button>
 </body>
 </html>

@@ -1,36 +1,13 @@
-<DOCTYPE html>
-<html>
-<head>
-<title>Edit-Grade</title>
-<style>
-	
-	table{
-		border-width:2px;
-		border-style:solid;
-		background-color:#ccc;
-		text-align:center;
-		align:center;
-	}
-	
-	body {
-            font-family: "Times New Roman", Times, serif;;
-            background-color:#568F87 ;
-            color: #2F3542;
-        }
-
-</style>
-</head>
-<body>
 <?php 
 	$id = $_GET['id'];
-	require_once('../config.php');
+	
 	
 	$query = "SELECT * FROM grades WHERE grade_id = '$id' ;";
 	$result = mysqli_query($conn,$query);
 	$row = mysqli_fetch_array($result);
 ?>
-<center>
-<form action="update.php" method = "POST" autocomplete = "on">
+
+<form action="?section=grade&page=update" method = "POST" autocomplete = "on">
 <table border="1" cellpadding = "10" cellspacing = "4">
 	<tr>
 		<th colspan = "2"> Edit Grade details  </th> 
@@ -58,6 +35,4 @@
 	
 
 </form>
-</center>
-</body>
-</html>
+

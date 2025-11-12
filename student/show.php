@@ -10,6 +10,7 @@ $row = mysqli_fetch_array($result);
 $query2 = "SELECT subject_id FROM student_subject WHERE student_id = $id";
 $results2 = mysqli_query($conn, $query2);
 //assign subject_id to $results2_array
+$results2_array=[];
 while ($row2 = mysqli_fetch_assoc($results2)) {
 	$results2_array[] = $row2['subject_id'];
 }

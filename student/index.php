@@ -1,5 +1,5 @@
 <?php
-	require_once('../config.php');
+	require_once('config.php');
 	$query="select * from students;";
 	$results=mysqli_query($conn,$query);
 	
@@ -11,37 +11,14 @@
 <style>
 <title>Student-Details</title>
 <style>
-	.button{
-		background-color: #6e3e70;
-        color: #E7E7E7;
-        font-size: 2em;
-        font-weight: 600;
-        letter-spacing: 1px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-	}
-	table{
-		border-width:2px;
-		border-style:solid;
-		background-color:pink;
-		text-align:center;
-	}
-	body {
-            font-family: "Times New Roman", Times, serif;;
-            background-color:#CBD99B ;
-            color: #2F3542;
-        }
-	img{
-		width:100px;
-		height:100px;
-		border-radius:50%;
-	}
+	
 
 </style>
 </head>
 <body>
 <h2><center>Student Details</center></h2>
 <hr/>
-	<table border="1" cellpadding = "5" cellspacing = "3">
+	<table border="1" >
 			<tr>
 				<td>Id</td>
 				<td>Profile</td>
