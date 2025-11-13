@@ -8,7 +8,13 @@ require_once('config.php');?>
     <title>School-System</title>
     <style>
         td[colspan="2"]{
-            
+
+        }
+        img{
+            width: "100px";
+            height: "100px";
+            border-radius: 50%;
+            justify-content: ;
         }
    
     </style>
@@ -24,6 +30,7 @@ require_once('config.php');?>
                     <li><a href="?section=student&page=index">Student</a></li>
                     <li><a href="?section=subject&page=index">Subject</a></li>
                     <li><a href="?section=grade&page=index">Grade</a></li>
+                    <li><a href="?">Grade</a></li>
                 </ul>
             </td>
             <td width="85%" style="background-color: #f6f2f7ff;">

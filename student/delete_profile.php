@@ -11,7 +11,7 @@ $result = mysqli_query($conn,$query);
 
 if($result){
 	echo "query executed successfully...";
-	header("Location: edit.php?id=". $id);
+	header("Location: ../index.php?section=student&page=edit&id=". $id);
 }
 else{
 	echo ("query not executed..").mysqli_error($conn);

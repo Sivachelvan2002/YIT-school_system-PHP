@@ -26,7 +26,7 @@
 				//while($row = mysqli_fetch_assoc($results) ?>
 			<tr>
 				<td><?php echo $students['id']; ?></td>
-				<td><img src="<?php echo $students['profile']; ?>" width="100px" height="100px"></td>
+				<td><img src="<?php echo substr($students['profile'],3) ?>" width="100px" height="100px"></td>
 				<td><?php echo $students['father_name']; ?></td>
 				<td><?php echo $students['student_name']; ?></td>
 				<td><?php echo $students['admission_number']; ?></td>

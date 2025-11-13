@@ -34,7 +34,7 @@ while ($row1 = mysqli_fetch_assoc($results1)) {
 		<th colspan="2"> Student details </th>
 	</tr>
 	<tr>
-		<td colspan="2"><img src="<?php echo $row['profile'];?>" width="100px" height="100px" ></td>
+		<td colspan="2"><img src="<?php echo substr($row['profile'],3);?>" width="100px" height="100px" ></td>
 
 	</tr>
 	<tr>

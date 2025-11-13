@@ -19,9 +19,9 @@ $results = mysqli_query($conn, $query1);
 			</tr>
 			<tr>
 				<div class="profile">
-					<td colspan="2"> <img src="<?php echo $row['profile'] ?>"><br />
+					<td colspan="2"> <img src="<?php echo substr($row['profile'],3) ?>" width="100px" height="100px" ><br />
 
-						<button><a href="delete_profile.php?id=<?php echo $row['id'] ?>">Delete Image</a></button>
+						<button><a href="student/delete_profile.php?id=<?php echo $row['id'] ?>">Delete Image</a></button>
 						<input type="file" name="myfile" id="myfile" accept="image/jpg">
 
 					</td>
