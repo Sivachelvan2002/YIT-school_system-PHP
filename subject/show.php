@@ -1,6 +1,6 @@
 <?php
 	$id = $_GET['id'];
-	require_once('../config.php');
+	//require_once('../config.php');
 	
 	$query = "SELECT * FROM subjects WHERE id = '$id' ;";
 	$result = mysqli_query($conn,$query);
@@ -8,29 +8,6 @@
 
 
 ?>
-<DOCTYPE html>
-<html>
-<head>
-<title>show-subject</title>
-<style>
-	
-	table{
-		border-width:2px;
-		border-style:solid;
-		background-color:#ccc;
-		text-align:center;
-		align:center;
-	}
-	body {
-            font-family: "Times New Roman", Times, serif;;
-            background-color:#CBD99B ;
-            color: #2F3542;
-        }
-
-</style>
-</head>
-<body>
-<center>
 <h2>Subject Details</h2>
 <table border="1" cellpadding = "10" cellspacing = "4">
 	<tr>
@@ -58,9 +35,4 @@
 		<td><input type="text" name="subject_number" id="subject_number" value="<?php echo $row['subject_number']?>"></td>
 	</tr>
 	
-</table> </br>
-
-
-</center>
-</body>
-</html>
+</table> 

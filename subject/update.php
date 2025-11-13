@@ -14,7 +14,8 @@ if($_SERVER ["REQUEST_METHOD"] == "POST" ){
 	if(!$results){
 		echo mysqli_error($conn);
 	}
-	header("Location: index.php");
+	header("Location: ../index.php?section=subject&page=index");
+	//header("Location: ../index.php?section=grade&page=index");
 }
 
 ?>

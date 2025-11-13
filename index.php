@@ -7,6 +7,9 @@ require_once('config.php');?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>School-System</title>
     <style>
+        td[colspan="2"]{
+            
+        }
    
     </style>
 </head>

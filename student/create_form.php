@@ -7,20 +7,6 @@
 
 ?>
 
-<DOCTYPE html>
-<html>
-<head>
-<title>Student creation</title>
-<style>
-	body {
-            font-family: "Times New Roman", Times, serif;;
-            background-color:#CBD99B ;
-            color: #2F3542;
-        }
-</style>
-</head>
-<body>
-<center>
 <form action="store.php" method="POST" enctype="multipart/form-data" autocomplete="on">
 <table border="1" cellpadding = "10" cellspacing = "0">
 	<tr>
@@ -87,6 +73,4 @@
 	
 
 </form>
-</center>
-</body>
-</html>
+

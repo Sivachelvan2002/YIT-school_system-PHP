@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $telephone_number = $_POST['telephone_number'];
     $address = $_POST['address'];
 
-    require_once('../config.php');
+    
     //check admission number
     $checkQuery = "SELECT * FROM students WHERE admission_number = '$admission_number' AND (id != '$id')";
 	$checkResult = mysqli_query($conn, $checkQuery);
@@ -60,5 +60,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!$results) {
         echo mysqli_error($conn);
     }
-    header("Location: index.php");
+    header("Location: ../index.php?section=student&page=index");
 }

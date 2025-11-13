@@ -1,37 +1,7 @@
-<html>
 
-<head>
-    <style>
-        .button {
-            background-color: #6e3e70;
-            color: #E7E7E7;
-            font-size: 2em;
-            font-weight: 600;
-            letter-spacing: 1px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        table {
-            border-width: 2px;
-            border-style: solid;
-            background-color: pink;
-            text-align: center;
-        }
-
-        body {
-            font-family: "Times New Roman", Times, serif;
-            background-color: #CBD99B;
-            color: #2F3542;
-        }
-
-        
-    </style>
-</head>
-
-<body>
     <?php
     $id = $_GET["id"];
-    include('../config.php');
+    //include('../config.php');
 
     // Fetch Student details
     $query = "SELECT * FROM students WHERE id='$id'";
@@ -141,6 +111,3 @@
         </form>
 
     </table>
-</body>
-
-</html>

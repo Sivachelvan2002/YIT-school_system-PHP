@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['delete']) && isset($_POST['delete_subject_id'])) {
         $subject_id = $_POST['delete_subject_id'];
         mysqli_query($conn, "DELETE FROM student_subject WHERE student_id='$student_id' AND subject_id='$subject_id'");
-        header("location:addsubject.php?id=$student_id"); // same folder redirect
+        header("location:../index.php?section=student&page=addsubject&id=$student_id"); // same folder redirect
         exit;
     }
 
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    header("location:addsubject.php?id=$student_id"); // same folder redirect
+    header("location: ../index.php?section=student&page=addsubject&id=$student_id");
     exit;
 }
 ?>

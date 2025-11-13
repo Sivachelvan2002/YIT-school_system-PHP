@@ -7,10 +7,16 @@ if($_SERVER ["REQUEST_METHOD"] == "POST" ){
 	$grade_order = $_POST['grade_order'];
 	require_once('../config.php');
 	//check grade name already exist or not
-	$checkQuery_name = "SELECT * FROM grades WHERE grade_name = '$grade_name'";
-	$checkResult_name = mysqli_query($conn, $checkQuery_name);
-
-	if (mysqli_num_rows($checkResult_name) > 0) {
+	$checkQuery = "SELECT grade_name.grade_order FROM grades";
+	$checkResult = mysqli_query($conn, $checkQuery);
+	$grade_names=[];
+	$grade_orders=[];
+	while($row=mysqli_fetch_assoc($checkResult)){
+		$grade_names[]=$row['grade_name'];
+		$grade_orders[]=$row['grade_order'];
+	}
+	
+	if (isset($grade_names)) {
 		echo "<script>
             alert('Grade Name already exists!');
             window.history.back();

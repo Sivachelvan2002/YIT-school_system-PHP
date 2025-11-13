@@ -27,7 +27,7 @@
 	</tr>
 	<tr>
 		<td><label for="grade_order">Grade Order</label></td>
-		<td><input type="text" name="grade_order" id="grade_order" value="<?php echo $row['grade_order']?>"></td>
+		<td><input type="number" name="grade_order" id="grade_order" step="0.1" value="<?php echo $row['grade_order']?>"></td>
 	</tr>
 	
 </table> </br>
