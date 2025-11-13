@@ -38,7 +38,7 @@
 	<body>
 		<?php
 		$id = $_GET['id'];
-		require_once('../config.php');
+		//require_once('../config.php');
 
 		$query = "SELECT * FROM students WHERE id = '$id' ;";
 		$result = mysqli_query($conn, $query);

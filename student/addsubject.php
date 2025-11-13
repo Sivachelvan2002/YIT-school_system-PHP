@@ -1,64 +1,69 @@
 <html>
-<head>
-<style>
 
-	.button{
-		background-color: #6e3e70;
-        color: #E7E7E7;
-        font-size: 2em;
-        font-weight: 600;
-        letter-spacing: 1px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-	}
-	table{
-		border-width:2px;
-		border-style:solid;
-		background-color:pink;
-		text-align:center;
-	}
-	body {
-            font-family: "Times New Roman", Times, serif;;
-            background-color:#CBD99B ;
+<head>
+    <style>
+        .button {
+            background-color: #6e3e70;
+            color: #E7E7E7;
+            font-size: 2em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            border-width: 2px;
+            border-style: solid;
+            background-color: pink;
+            text-align: center;
+        }
+
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background-color: #CBD99B;
             color: #2F3542;
         }
 
-</style>
+        
+    </style>
 </head>
+
 <body>
     <?php
-	//id
     $id = $_GET["id"];
-    //include('../auth/auth_session.php');
     include('../config.php');
-	//fetch Student details
-    $query = "SELECT * FROM students where id='$id'";
+
+    // Fetch Student details
+    $query = "SELECT * FROM students WHERE id='$id'";
     $results = mysqli_query($conn, $query);
-    if (!$results) {
-        echo mysqli_error($conn);
-    }
     $row = mysqli_fetch_array($results);
-	//fetch id,subject_name from subject
+
+    // Fetch all subjects
     $query1 = "SELECT id, subject_name FROM subjects";
     $results1 = mysqli_query($conn, $query1);
-    if (!$results1) {
-        echo mysqli_error($conn);
-        exit;
-    }
     $subjects = [];
-	//assign every row of id,subject_name to $subjects[]
     while ($row1 = mysqli_fetch_assoc($results1)) {
         $subjects[] = $row1;
     }
+
+    // Fetch assigned subjects
+    $query2 = "SELECT subject_id FROM student_subject WHERE student_id = $id";
+    $results2 = mysqli_query($conn, $query2);
+    $results2_array = [];
+    while ($row2 = mysqli_fetch_assoc($results2)) {
+        $results2_array[] = $row2['subject_id'];
+    }
     ?>
-	
+
     <table border="1">
         <tr>
             <th colspan="2" style="text-align:center;">
                 <h1>Student Details</h1>
             </th>
         </tr>
-        <th>Father Name</th>
-        <td><?php echo $row['father_name']; ?></td>
+        <tr>
+            <th>Father Name</th>
+            <td><?php echo $row['father_name']; ?></td>
         </tr>
         <tr>
             <th>Student Name</th>
@@ -93,26 +98,19 @@
             <td><?php echo $row["address"]; ?></td>
         </tr>
         <tr>
-            <?php
-			//fetch subject_id from student_subject table
-            $query2 = "SELECT subject_id FROM student_subject WHERE student_id = $id";
-            $results2 = mysqli_query($conn, $query2);
-			//assign subject_id to $results2_array
-            $results2_array=[];
-            while($row2=mysqli_fetch_assoc($results2)){
-                $results2_array[]=$row2['subject_id'];
-            }
-            ?>
-        </tr>
-        <tr>
             <th>Assigned Subjects</th>
             <td>
                 <?php
                 if (!empty($results2_array)) {
                     foreach ($subjects as $subject) {
-                        if (in_array($subject['id'], $results2_array)) {
-                            echo $subject['subject_name'] . "<br>";
-                        }
+                        if (in_array($subject['id'], $results2_array)) { ?>
+                            <form action="student/student_subject_store.php" method="POST" style="display:inline;">
+                                <input type="hidden" name="student_id" value="<?php echo $id; ?>">
+                                <input type="hidden" name="delete_subject_id" value="<?php echo $subject['id']; ?>">
+                                <?php echo $subject['subject_name']; ?>
+                                <button type="submit" name="delete" class="delete-btn">Delete</button>
+                            </form><br>
+                <?php }
                     }
                 } else {
                     echo "No subjects assigned.";
@@ -120,21 +118,19 @@
                 ?>
             </td>
         </tr>
-        <form action="student_subject_store.php" method="POST">
+
+        <form action="student/student_subject_store.php" method="POST">
             <input type="hidden" name="student_id" value="<?php echo $id; ?>">
             <tr>
                 <th>Subjects</th>
                 <td>
                     <?php
                     foreach ($subjects as $subject) { ?>
-						
-                        <input type='checkbox' name='subjects[]' 
-                        value="<?php echo $subject['id'] ?>" 
-                        <?php if (in_array($subject['id'], $results2_array)){echo "checked";} ?>>
+                        <input type='checkbox' name='subjects[]'
+                               value="<?php echo $subject['id'] ?>"
+                               <?php if (in_array($subject['id'], $results2_array)) echo "checked"; ?>>
                         <?php echo $subject['subject_name'] ?><br>
-						<?php }
-                    
-                    ?>
+                    <?php } ?>
                 </td>
             </tr>
             <tr>
@@ -143,7 +139,8 @@
                 </td>
             </tr>
         </form>
-		
+
     </table>
 </body>
+
 </html>
