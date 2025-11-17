@@ -48,7 +48,7 @@ $results = mysqli_query($conn, $query1);
 					<select name="grade_id">
 						<?php while ($row1 = mysqli_fetch_assoc($results)) { ?>
 
-							<option value="<?php echo $row1['grade_id']; ?> "><?php echo $row1['grade_name'] ?></option>
+							<option value="<?php echo $row1['grade_id']; ?> " ><?php echo $row1['grade_name'] ?></option>
 						<?php } ?>
 					</select>
 				</td>
