@@ -38,6 +38,6 @@ if(!$results){
 			</tr>
 		<?php } ?>
 	</table></br>
-	<button><a href="?section=grade&page=create_form">Add Grade</a></button>
+	<button><a href="?section=grade&page=create-form">Add Grade</a></button>
 </body>
 </html>

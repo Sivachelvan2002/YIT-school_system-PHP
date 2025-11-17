@@ -36,4 +36,4 @@ if(!$results){
 			</tr>
 		<?php } ?>
 	</table></br>
-	<button><a href="?section=subject&page=create_form">Add Subject</a></button>
+	<button><a href="?section=subject&page=create-form">Add Subject</a></button>

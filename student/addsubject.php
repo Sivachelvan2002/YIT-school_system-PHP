@@ -74,11 +74,11 @@
                 if (!empty($results2_array)) {
                     foreach ($subjects as $subject) {
                         if (in_array($subject['id'], $results2_array)) { ?>
-                            <form action="student/student_subject_store.php" method="POST" style="display:inline;">
+                            <form action="student/student-subject-store.php" method="POST" style="display:inline;">
                                 <input type="hidden" name="student_id" value="<?php echo $id; ?>">
                                 <input type="hidden" name="delete_subject_id" value="<?php echo $subject['id']; ?>">
                                 <?php echo $subject['subject_name']; ?>
-                                <button type="submit" name="delete" class="delete-btn">Delete</button>
+                                <button type="submit" name="delete" >Delete</button>
                             </form><br>
                 <?php }
                     }
@@ -89,7 +89,7 @@
             </td>
         </tr>
 
-        <form action="student/student_subject_store.php" method="POST">
+        <form action="student/student-subject-store.php" method="POST">
             <input type="hidden" name="student_id" value="<?php echo $id; ?>">
             <tr>
                 <th>Subjects</th>

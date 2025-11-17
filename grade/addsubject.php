@@ -63,7 +63,7 @@
                 if (!empty($subject_ids)) {
                     foreach ($subjects as $subject) {
                         if (in_array($subject['id'], $subject_ids)) { ?>
-                            <form action="grade/grade_subject_store.php" method="POST" style="display:inline;">
+                            <form action="grade/grade-subject-store.php" method="POST" style="display:inline;">
                                 <input type="hidden" name="grade_id" value="<?php echo $id; ?>">
                                 <input type="hidden" name="delete_subject_id" value="<?php echo $subject['id']; ?>">
                                 <?php echo $subject['subject_name']; ?>
@@ -78,7 +78,7 @@
 
             </td>
         </tr>
-        <form action="grade/grade_subject_store.php" method="POST">
+        <form action="grade/grade-subject-store.php" method="POST">
             <input type="hidden" name="grade_id" value="<?php echo $id; ?>">
             <tr>
                 <th>Subjects</th>

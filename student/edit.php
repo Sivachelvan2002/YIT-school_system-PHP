@@ -21,13 +21,11 @@ $results = mysqli_query($conn, $query1);
 				<div class="profile">
 					<td colspan="2"> <img src="<?php echo substr($row['profile'],3) ?>" width="100px" height="100px" ><br />
 
-						<button><a href="student/delete_profile.php?id=<?php echo $row['id'] ?>">Delete Image</a></button>
-						<input type="file" name="myfile" id="myfile" accept="image/jpg">
+						<button><a href="student/delete-profile.php?id=<?php echo $row['id'] ?>&path=<?php echo $row['profile'] ?>">Delete Image</a></button>
+						<input type="file" name="myfile" id="myfile"  >
 
 					</td>
 				</div>
-
-
 			</tr>
 			<tr>
 				<td><label for="father_name">Father Name</label></td>
@@ -50,7 +48,7 @@ $results = mysqli_query($conn, $query1);
 					<select name="grade_id">
 						<?php while ($row1 = mysqli_fetch_assoc($results)) { ?>
 
-							<option value="<?php echo $row1['grade_id']; ?>"><?php echo $row1['grade_name'] ?></option>
+							<option value="<?php echo $row1['grade_id']; ?> "><?php echo $row1['grade_name'] ?></option>
 						<?php } ?>
 					</select>
 				</td>

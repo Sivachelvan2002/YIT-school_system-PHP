@@ -51,11 +51,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$target_dir = "../upload/";
 		$target_file = $target_dir . basename($file["name"]);
 		$original_file_name = basename($file["name"]);
-		$allowedTypes = ['jpg', 'jpeg', 'png', 'gif'];
+		$allowedTypes = ['jpg', 'jpeg', 'png', 'gif','webk'];
 
 		$img_file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-
 		if (in_array($img_file_type, $allowedTypes)) {
 			$size = (int) $file["size"];
 

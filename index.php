@@ -6,6 +6,7 @@ require_once('config.php');?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>School-System</title>
+    
     <style>
         td[colspan="2"]{
             text-align: center;
@@ -16,7 +17,7 @@ require_once('config.php');?>
             width: "100px";
             height: "100px";
             border-radius: 50%;
-            justify-content: ;
+           
         }
         ul{
             list-style: none;
