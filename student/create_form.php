@@ -1,5 +1,5 @@
 <?php
-	require_once('../config.php');
+	//require_once('../config.php');
 	
 	$query = "SELECT grade_id,grade_name FROM grades;";
 	$results = mysqli_query($conn,$query);
@@ -7,15 +7,12 @@
 
 ?>
 
-<form action="store.php" method="POST" enctype="multipart/form-data" autocomplete="on">
+<form action="student/store.php" method="POST" enctype="multipart/form-data" autocomplete="on">
 <table border="1" cellpadding = "10" cellspacing = "0">
 	<tr>
 		<th colspan = "2"> Student Registation </th> 
 	</tr>
-	<tr>
-		<td><label for="id">Id</label></td>
-		<td><input type="text" name="id" id="id" placeholder = "" required></td>
-	</tr>
+	
 	<tr>
 		<td><label for="profile">Profile</label></td>
 		<td><input type="file" name="profile" id="profile" accept="image/jpg" ></td>

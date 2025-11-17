@@ -17,16 +17,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	require_once('../config.php');
 	//check admission number 
-	$checkQuery = "SELECT * FROM students WHERE admission_number = '$admission_number'";
+	$checkQuery = "SELECT admission_number,nic_number FROM students";
 	$checkResult = mysqli_query($conn, $checkQuery);
+	$admission_numbers = [];
+	$nic_numbers = [];
+	while ($row = mysqli_fetch_assoc($checkResult)) {
+		$admission_numbers[] = $row['admission_number'];
+		$nic_numbers[] = $row['nic_number'];
+	}
 
-	if (mysqli_num_rows($checkResult) > 0) {
+	if (in_array($admission_number, $admission_numbers) && in_array($nic_number, $nic_numbers)) {
 		echo "<script>
-            alert('Admission number already exists!');
+            alert('admission number and nic number already exists!');
             window.history.back();
             </script>";
 		exit();
-	}
+	} elseif (in_array($admission_number, $admission_numbers)) {
+		echo "<script>
+            alert('Addmission number already exists!');
+            window.history.back();
+            </script>";
+		exit();
+	} elseif (in_array($nic_number, $nic_numbers)) {
+		echo "<script>
+            alert('Nic number already exists!');
+            window.history.back();
+            </script>";
+		exit();
+	} else {
 
 	
 	if (isset($file) && $file['name'] != '') {
@@ -55,7 +73,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	if (!$results) {
 		echo mysqli_error($conn);
 	}
-	header("Location: index.php");
+	header("Location:../index.php?section=student&page=index");
 	exit();
+}
 }
 ?>

@@ -44,4 +44,4 @@
 			</tr>
 		<?php } ?>
 	</table></br>
-	<button><a href="create_form.php">Add Student</a></button>
+	<button><a href="?section=student&page=create_form">Add Student</a></button>
