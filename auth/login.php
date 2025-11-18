@@ -1,61 +1,46 @@
 <?php
 require_once('../config.php');
-
 $query = "SELECT username,password FROM user;";
-$results = mysqli_query($conn,$query);
-
-
-
-
+$results = mysqli_query($conn, $query);
 ?>
 <DOCTYPE html>
-<html>
-<head>
-<title>Edit-student</title>
-<style>
-	
-	table{
-		border-width:2px;
-		border-style:solid;
-		background-color:#ccc;
-		text-align:center;
-		align:center;
-	}
-	
-	form{
-		border-width:2px;
-		border-style:solid;
-		width:20%;
-		height:50vh;
-		text-align:center;
-		padding:10px 10px;
-		border-radius: 20px;
-		align:center;
-		margin:20px;
-		background-color:pink;
-	}
+	<html>
 
-</style>
-</head>
-<body>
-<center>
-<form method="POST" action="islogin.php">
-<h2>Login Form</h2>
-    <b><label>Username:</label></b>
-    <input type="text" name="username"><br><br>
-     <b><label>Password:</label> </b>
-    <input type="password" name="password"><br><br>
-    <input type="submit" value="Login">
-	<input type="reset" value="Reset">
-</form>
-</center>
+	<head>
+		<title>Edit-student</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<style>
+			.container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		</style>
+	</head>
 
+	<body class="bg-gradient">
+		<div class="container mt-5">
+			<div class="card" style="width: 18rem;">
+				<div class="card-header text-center bg-secondary.bg-gradient text-dark">Login Form</div>
+				<div class="card-body ">
+					<form method="POST" action="islogin.php">
+						<div class="mb-3">
+							<label for="username">Username</label>
+							<input type="text" class="form-control" name="username" id="username">
+						</div>
+						<div class="mb-3">
+							<label for="password">Password:</label>
+							<input type="password" name="password" id="password">
+						</div>
+						<div class="mb-3">
+							<input type="submit" value="Login" class="btn btn-primary">
+							<input type="reset" value="Reset" class="btn btn-warning">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	</body>
 
-
-
-
-
-
-
-</body>
-</html>
+	</html>

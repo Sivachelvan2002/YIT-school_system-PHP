@@ -5,6 +5,7 @@ $id = $_GET['id'];
 $query = "SELECT * FROM students WHERE id = '$id' ;";
 $result = mysqli_query($conn, $query);
 $row = mysqli_fetch_array($result);
+$profilepath = $row['profile']; 
 
 
 $query1 = "SELECT grade_id,grade_name FROM grades;";
@@ -12,14 +13,14 @@ $results = mysqli_query($conn, $query1);
 
 ?>
 <center>
-	<form action="student/update.php" method="POST" enctype="multipart/form-data" autocomplete="on">
+	<form action="student/update.php?path=<?php echo $profilepath ?>" method="POST" enctype="multipart/form-data" autocomplete="on">
 		<table border="1" cellpadding="10" cellspacing="4">
 			<tr>
 				<th colspan="2"> Edit Student details </th>
 			</tr>
 			<tr>
 				<div class="profile">
-					<td colspan="2"> <img src="<?php echo substr($row['profile'], 3) ?>" width="100px" height="100px"><br />
+					<td colspan="2"> <img src="<?php echo substr($profilepath, 3) ?>" width="100px" height="100px"><br />
 
 						<button><a href="student/delete-profile.php?id=<?php echo $row['id'] ?>&path=<?php echo $row['profile'] ?>">Delete Image</a></button>
 						<input type="file" name="myfile" id="myfile">

@@ -3,7 +3,7 @@ $id = $_GET['id'];
 
 require_once('../config.php');
 
-$query = "DELETE FROM students WHERE id='$id'";
+$query = "UPDATE students SET deleted_at=NOW() WHERE id='$id'";
 $result = mysqli_query($conn,$query);
 
 if($result){

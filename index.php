@@ -1,110 +1,65 @@
-<?php require_once('auth/session.php'); 
-require_once('config.php');?>
+<?php require_once('auth/session.php');
+require_once('config.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
-<head >
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>School-System</title>
-    
     <style>
-        td[colspan="2"]{
-            text-align: center;
-            font-size: xx-large;
-            color: whitesmoke;
-        }
-        img{
-            width: "100px";
-            height: "100px";
-            border-radius: 50%;
-           
-        }
-        ul{
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-            
-            
-        }
-        ul li{
-            margin: 0;
-            padding: 10px 10px;
-            justify-content: center;
-            align-items: center;
-            
-            
-           
-        }
-        ul li:hover{
-            background-color: pink;
-            border-radius: 10px;
-            color: black;
-            
-
-        }
-        ul li a{
-            color: whitesmoke;
-        }
-        ul li a:hover{
-            color: black;
-        }
-   
+        
     </style>
+
 </head>
+
 <body>
-    <table width="100%" height="100%">
-        <tr height="100" style="background-color: #3b2e58ff;">
-            <td colspan="2" >School Management system</td>
+    <table width="100%" height="100%" class="table table-bordered border-primary">
+        <tr height="100" class="bg-info">
+            <td colspan="2" class="fs-1 text-center text-light">School Management system</td>
         </tr>
         <tr height="400">
-            <td width="15%" style="background-color: #3b2e58ff;" >
-                <ul>
-                    <li><a href="?section=student&page=index">Student</a></li>
-                    <li><a href="?section=subject&page=index">Subject</a></li>
-                    <li><a href="?section=grade&page=index">Grade</a></li>
-                    <li><a href="?section=auth&page=logout">Logout</a></li>
+            <td width="15%" class="">
+                <ul class="list-group mt-">
+                    <li class="list-group-item"><a class=" " href="?section=subject&page=index">Subject</a></li>
+                    <li class="list-group-item"><a class="" href="?section=grade&page=index">Grade</a></li>
+                    <li class="list-group-item"><a class=" " href="?section=student&page=index">Student</a></li>
+                    <li class="list-group-item"><a class="" href="?section=auth&page=logout">Logout</a></li>
                 </ul>
+               
             </td>
             <td width="85%" style="background-color: #f6f2f7ff;">
                 <?php
                 //get folder name or assign default foldername
-                if(isset($_GET["section"])){
-                    $sec=$_GET["section"];
-                }else{
-                    $sec="student";
+                if (isset($_GET["section"])) {
+                    $sec = $_GET["section"];
+                } else {
+                    $sec = "student";
                 }
                 //get file name or assign default filename 
-                if(isset($_GET["page"])){
-                    $p=$_GET["page"];
-                } else{
-                    $p="index";
+                if (isset($_GET["page"])) {
+                    $p = $_GET["page"];
+                } else {
+                    $p = "index";
                 }
                 //assign foldername + filename to $path
-                $path=$sec."/".$p.".php";
+                $path = $sec . "/" . $p . ".php";
                 //check $path la kudutha name la ethum irukka endu
-                if(file_exists($path)){
+                if (file_exists($path)) {
                     include($path);
-                }else{
+                } else {
                     echo "<h1>404 error</h1>";
                 }
-                    
+
                 ?>
             </td>
         </tr>
-        <tr height="100" style="background-color: #3b2e58ff;">
-            <td colspan="2" >Footer</td>
+        <tr height="100" class="bg-info">
+            <td colspan="2" class="fs-1 text-center text-light">Footer</td>
         </tr>
     </table>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-

@@ -28,7 +28,7 @@ while ($row1 = mysqli_fetch_assoc($results1)) {
 
 
 ?>
-<h2>Student Details</h2>
+<h2><center>Student Details</center></h2>
 <table border="1" cellpadding="10" cellspacing="4">
 	<tr>
 		<th colspan="2"> Student details </th>

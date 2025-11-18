@@ -1,4 +1,5 @@
 <?php
+$path=$_GET['path'];
 require_once('../config.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($_FILES['myfile']['name'])) {
@@ -69,6 +70,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             echo " Upload profile Only allowed file types";
         }
+    }
+    // delete old profile when change photo without delete
+    if(($path != $target_file) && isset($target_file)){
+        unlink($path);
     }
 
     $query = "UPDATE students SET father_name = '$father_name' ,student_name = '$student_name',admission_number = '$admission_number',grade_id = '$grade_id',nic_number = '$nic_number',date_of_birth='$date_of_birth',gender='$gender',telephone_number='$telephone_number',address='$address' WHERE id ='$id'; ";
