@@ -25,7 +25,7 @@
     }
     ?>
 
-    <table border="1">
+    <table class="table table-dark table-hover">
         <tr>
             <th colspan="2" style="text-align:center;">
                 <h1>Student Details</h1>
@@ -78,7 +78,7 @@
                                 <input type="hidden" name="student_id" value="<?php echo $id; ?>">
                                 <input type="hidden" name="delete_subject_id" value="<?php echo $subject['id']; ?>">
                                 <?php echo $subject['subject_name']; ?>
-                                <button type="submit" name="delete" >Delete</button>
+                                <button type="submit" class="btn btn-outline-danger" name="delete" >Delete</button>
                             </form><br>
                 <?php }
                     }
@@ -105,7 +105,7 @@
             </tr>
             <tr>
                 <td colspan="2" style="text-align:center;">
-                    <input type="submit" value="Submit">
+                    <input type="submit" class="btn btn-outline-success"  value="Submit">
                 </td>
             </tr>
         </form>

@@ -29,7 +29,7 @@ while ($row1 = mysqli_fetch_assoc($results1)) {
 
 ?>
 <h2><center>Student Details</center></h2>
-<table border="1" cellpadding="10" cellspacing="4">
+<table  class="table table-dark table-hover">
 	<tr>
 		<th colspan="2"> Student details </th>
 	</tr>

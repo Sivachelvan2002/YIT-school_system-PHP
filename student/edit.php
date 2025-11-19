@@ -14,12 +14,13 @@ $results = mysqli_query($conn, $query1);
 ?>
 <center>
 	<form action="student/update.php?path=<?php echo $profilepath ?>" method="POST" enctype="multipart/form-data" autocomplete="on">
-		<table border="1" cellpadding="10" cellspacing="4">
+	<div class="table-responsive-lg">
+		<table class="table table-dark table-hover table-sm">
 			<tr>
 				<th colspan="2"> Edit Student details </th>
 			</tr>
 			<tr>
-				<div class="profile">
+				<div class="">
 					<td colspan="2"> <img src="<?php echo substr($profilepath, 3) ?>" width="100px" height="100px"><br />
 
 						<button><a href="student/delete-profile.php?id=<?php echo $row['id'] ?>&path=<?php echo $row['profile'] ?>">Delete Image</a></button>
@@ -91,8 +92,11 @@ $results = mysqli_query($conn, $query1);
 				<td><label for="address">Address</label></td>
 				<td><input type="text" name="address" id="address" value="<?php echo $row['address'] ?>"></td>
 			</tr>
-		</table> </br>
-		<input type="reset" value="Reset"> <input type="submit" value="Save">
+		</table> 
+
+	</div>	
+	
+		<input type="reset" class="btn btn-outline-danger" value="Reset"> <input type="submit" class="btn btn-outline-success" value="Save">
 
 
 	</form>

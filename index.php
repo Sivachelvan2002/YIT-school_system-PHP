@@ -10,6 +10,7 @@ require_once('config.php'); ?>
     <title>School-System</title>
     <style>
         
+        
     </style>
 
 </head>
@@ -20,12 +21,12 @@ require_once('config.php'); ?>
             <td colspan="2" class="fs-1 text-center text-light">School Management system</td>
         </tr>
         <tr height="400">
-            <td width="15%" class="">
-                <ul class="list-group mt-">
-                    <li class="list-group-item"><a class=" " href="?section=subject&page=index">Subject</a></li>
-                    <li class="list-group-item"><a class="" href="?section=grade&page=index">Grade</a></li>
-                    <li class="list-group-item"><a class=" " href="?section=student&page=index">Student</a></li>
-                    <li class="list-group-item"><a class="" href="?section=auth&page=logout">Logout</a></li>
+            <td width="15%" class="bg-info">
+                <ul class="list-group mt-5 bg-secondary">
+                    <li class="list-group-item text-center list-group-item-action list-group-item-secondary"><a class="text-decoration-none" href="?section=subject&page=index">Subject</a></li>
+                    <li class="list-group-item text-center list-group-item-action list-group-item-secondary"><a class="text-decoration-none" href="?section=grade&page=index">Grade</a></li>
+                    <li class="list-group-item text-center list-group-item-action list-group-item-secondary"><a class="text-decoration-none " href="?section=student&page=index">Student</a></li>
+                    <li class="list-group-item text-center list-group-item-action list-group-item-secondary"><a class="text-decoration-none" href="?section=auth&page=logout">Logout</a></li>
                 </ul>
                
             </td>
