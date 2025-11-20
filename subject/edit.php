@@ -8,7 +8,7 @@ $row = mysqli_fetch_array($result);
 ?>
 
 <form action="subject/update.php" method="POST" autocomplete="on">
-	<table border="1" cellpadding="10" cellspacing="4">
+	<table class="table table-hover table-striped">
 		<tr>
 			<th colspan="2"> Edit Subject details </th>
 		</tr>
