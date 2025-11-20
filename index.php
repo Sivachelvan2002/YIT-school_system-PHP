@@ -9,6 +9,14 @@ require_once('config.php'); ?>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>School-System</title>
     <style>
+        .maintable{
+            background: rgb(72, 57, 132);
+        }
+        .main-heading{
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 900;
+            margin-top: 20px;
+        }
         
         
     </style>
@@ -16,12 +24,12 @@ require_once('config.php'); ?>
 </head>
 
 <body>
-    <table width="100%" height="100%" class="table table-bordered border-primary">
-        <tr height="100" class="bg-info">
-            <td colspan="2" class="fs-1 text-center text-light">School Management system</td>
+    <table width="100%" height="100%" class="table table-bordered maintable">
+        <tr height="100" class="">
+            <td colspan="2" class="fs-1 text-center text-light main-heading">School Management system</td>
         </tr>
         <tr height="400">
-            <td width="15%" class="bg-info">
+            <td width="15%" class="maintable">
                 <ul class="list-group mt-5 bg-secondary">
                     <li class="list-group-item text-center list-group-item-action list-group-item-secondary"><a class="text-decoration-none" href="?section=subject&page=index">Subject</a></li>
                     <li class="list-group-item text-center list-group-item-action list-group-item-secondary"><a class="text-decoration-none" href="?section=grade&page=index">Grade</a></li>
@@ -56,7 +64,7 @@ require_once('config.php'); ?>
                 ?>
             </td>
         </tr>
-        <tr height="100" class="bg-info">
+        <tr height="100" class="maintable">
             <td colspan="2" class="fs-1 text-center text-light">Footer</td>
         </tr>
     </table>
