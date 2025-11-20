@@ -19,11 +19,18 @@ $results = mysqli_query($conn, $query1);
 	}
 
 	img {
-		width: 400px;
-		height: 400px;
-		border-radius: 50%;
+		width: 300px;
+		height: 300px;
+		border-radius: 20%;
 		border-color: blue;
+		box-shadow: 10px 10px gray;
+		margin-bottom: 30px;
 		
+	}
+	img:hover{
+		transform: scale(1.2);
+		transition-duration: 0.5s;
+		border: 2px solid blueviolet;
 	}
 
 	.button {
@@ -36,16 +43,16 @@ $results = mysqli_query($conn, $query1);
 
 	.main {
 		display: flex;
-		justify-content: space-around;
+		justify-content: center;
 		align-items: center;
 	}
 </style>
-<div class="bg-info bg-gradient">
+<div class=" bg-gradient">
 <h4 class="text-center mb-4 bg-secondary p-2">Edit student Details</h4>
 <div class="main ">
 	<div class="">
 		<div class="">
-			<img src="<?php echo substr($profilepath, 3) ?>" width="100px" height="100px"><br />
+			<img src="<?php echo substr($profilepath, 3) ?>" ><br />
 
 		</div>
 		<div class="button">
@@ -64,7 +71,7 @@ $results = mysqli_query($conn, $query1);
 					<td>
 						<label for="father_name">Father Name</label>
 					</td>
-					<td><input type="text" name=id="father_name" value="<?php echo $row['father_name'] ?>">
+					<td><input type="text" name="father_name" value="<?php echo $row['father_name'] ?>">
 						<input type="hidden" name="id" id="id" value="<?php echo $row['id'] ?>">
 					</td>
 				</tr>

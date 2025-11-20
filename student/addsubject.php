@@ -24,8 +24,16 @@
         $results2_array[] = $row2['subject_id'];
     }
     ?>
-
-    <table class="table table-dark table-hover">
+    <style>
+        .table1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+    </style>
+<div class="table1">
+    <table class="table table-dark table-hover" style="width: 24rem;">
         <tr>
             <th colspan="2" style="text-align:center;">
                 <h1>Student Details</h1>
@@ -111,3 +119,4 @@
         </form>
 
     </table>
+</div>

@@ -28,75 +28,101 @@ while ($row1 = mysqli_fetch_assoc($results1)) {
 
 
 ?>
-<h2><center>Student Details</center></h2>
-<table  class="table table-dark table-hover">
-	<tr>
-		<th colspan="2"> Student details </th>
-	</tr>
-	<tr>
-		<td colspan="2"><img src="<?php echo substr($row['profile'],3);?>" width="100px" height="100px" ></td>
+<style>
+	.card{
+		width: 24rem;
+	}
+	.container{
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		
+	}
+	img{
+		width: 300px;
+		height: 300px;
+		border-radius: 20%;
+		margin-bottom: 30px;
+	}
+	img:hover{
+		transform: scale(1.1);
+		transition-duration: 0.5s;
+	}
 
-	</tr>
-	<tr>
-		<td><label for="father_name">Father Name</label></td>
-		<td><input type="text" name="father_name" id="father_name" value="<?php echo $row['father_name'] ?>">
-			<input type="hidden" name="id" id="id" value="<?php echo $row['id'] ?>">
-		</td>
-	</tr>
-	<tr>
-		<td><label for="student_name">Student Name</label></td>
-		<td><input type="text" name="student_name" id="student_name" value="<?php echo $row['student_name'] ?>"></td>
-	</tr>
-	<tr>
-		<td><label for="admission_number">Addmission Number</label></td>
-		<td><input type="text" name="admission_number" id="admission_number" value="<?php echo $row['admission_number'] ?>"></td>
-	</tr>
-	<tr>
-		<td><label for="grade_id">Grade Id</label></td>
-		<td>
-			<input type="SELECT" name="grade_id" id="grade_id" value="<?php echo $row['grade_id'] ?>">
-		</td>
-	</tr>
-	<tr>
-		<td><label for="nic_number">NIC Number</label></td>
-		<td><input type="number" name="nic_number" id="nic_number" value="<?php echo $row['nic_number'] ?>"></td>
-	</tr>
-	<tr>
-		<td><label for="date_of_birth">Date Of Birth</label></td>
-		<td><input type="date" name="date_of_birth" id="date_of_birth" value="<?php echo $row['date_of_birth'] ?>"></td>
-	</tr>
-	<tr>
-		<td><label for="gender">Gender</label></td>
-		<td>
-			<input type="radio" name="gender" id="male" value="male"
-				<?php if ($row['gender'] == 'male') echo 'checked'; ?>>
-			<label for="male">Male</label>
+</style>
+<h4 class="text-center mb-4 bg-secondary p-2">Student Details</h4>
+<div class="container">
+	<div>
+		<img src="<?php echo substr($row['profile'], 3); ?>" width="100px" height="100px">
+	</div>
 
-			<input type="radio" name="gender" id="female" value="female"
-				<?php if ($row['gender'] == 'female') echo 'checked'; ?>>
-			<label for="female">Female</label>
 
-			<input type="radio" name="gender" id="other" value="other"
-				<?php if ($row['gender'] == 'other') echo 'checked'; ?>>
-			<label for="other">Other</label>
-		</td>
-	</tr>
-	<tr>
-		<td><label for="telephone_number">Telephone Number</label></td>
-		<td><input type="text" name="telephone_number" id="telephone_number" value="<?php echo $row['telephone_number'] ?>"></td>
-	</tr>
-	<tr>
-		<td><label for="address">Address</label></td>
-		<td><input type="text" name="address" id="address" value="<?php echo $row['address'] ?>"></td>
-	</tr>
-	<tr>
-		<td><label for="subjects">subjects</label></td>
-		<td>
-			<?php foreach ($subjects as $subject) { ?>
-				<?php if (in_array($subject['id'], $results2_array)) { ?>
-					<input type="text" name="subjects" id="subjects" value="<?php echo $subject['subject_name']; ?>"><br />
-				<?php } ?>
-			<?php } ?>
-		</td>
-	</tr>
-</table> 
+	<div class="table card">
+		<table class="table table-dark table-hover" >
+
+
+			<tr>
+				<td><label for="father_name">Father Name</label></td>
+				<td><input type="text" name="father_name" id="father_name" value="<?php echo $row['father_name'] ?>">
+					<input type="hidden" name="id" id="id" value="<?php echo $row['id'] ?>">
+				</td>
+			</tr>
+			<tr>
+				<td><label for="student_name">Student Name</label></td>
+				<td><input type="text" name="student_name" id="student_name" value="<?php echo $row['student_name'] ?>"></td>
+			</tr>
+			<tr>
+				<td><label for="admission_number">Addmission Number</label></td>
+				<td><input type="text" name="admission_number" id="admission_number" value="<?php echo $row['admission_number'] ?>"></td>
+			</tr>
+			<tr>
+				<td><label for="grade_id">Grade Id</label></td>
+				<td>
+					<input type="SELECT" name="grade_id" id="grade_id" value="<?php echo $row['grade_id'] ?>">
+				</td>
+			</tr>
+			<tr>
+				<td><label for="nic_number">NIC Number</label></td>
+				<td><input type="number" name="nic_number" id="nic_number" value="<?php echo $row['nic_number'] ?>"></td>
+			</tr>
+			<tr>
+				<td><label for="date_of_birth">Date Of Birth</label></td>
+				<td><input type="date" name="date_of_birth" id="date_of_birth" value="<?php echo $row['date_of_birth'] ?>"></td>
+			</tr>
+			<tr>
+				<td><label for="gender">Gender</label></td>
+				<td>
+					<input type="radio" name="gender" id="male" value="male"
+						<?php if ($row['gender'] == 'male') echo 'checked'; ?>>
+					<label for="male">Male</label>
+
+					<input type="radio" name="gender" id="female" value="female"
+						<?php if ($row['gender'] == 'female') echo 'checked'; ?>>
+					<label for="female">Female</label>
+
+					<input type="radio" name="gender" id="other" value="other"
+						<?php if ($row['gender'] == 'other') echo 'checked'; ?>>
+					<label for="other">Other</label>
+				</td>
+			</tr>
+			<tr>
+				<td><label for="telephone_number">Telephone Number</label></td>
+				<td><input type="text" name="telephone_number" id="telephone_number" value="<?php echo $row['telephone_number'] ?>"></td>
+			</tr>
+			<tr>
+				<td><label for="address">Address</label></td>
+				<td><input type="text" name="address" id="address" value="<?php echo $row['address'] ?>"></td>
+			</tr>
+			<tr>
+				<td><label for="subjects">subjects</label></td>
+				<td>
+					<?php foreach ($subjects as $subject) { ?>
+						<?php if (in_array($subject['id'], $results2_array)) { ?>
+							<input type="text" name="subjects" id="subjects" value="<?php echo $subject['subject_name']; ?>"><br />
+						<?php } ?>
+					<?php } ?>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
