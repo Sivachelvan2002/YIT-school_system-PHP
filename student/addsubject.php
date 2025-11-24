@@ -7,6 +7,7 @@ $query = "SELECT * FROM students WHERE id='$id'";
 $results = mysqli_query($conn, $query);
 $row = mysqli_fetch_array($results);
 
+
 // Fetch all subjects
 $query1 = "SELECT id, subject_name FROM subjects";
 $results1 = mysqli_query($conn, $query1);
@@ -112,7 +113,7 @@ while ($row2 = mysqli_fetch_assoc($results2)) {
             </tr>
             <tr>
                 <td colspan="2" style="text-align:center;">
-                    <a href="?section=grade&page=index" class="btn btn-outline-info">Back</a>
+                    <a href="?section=student&page=index" class="btn btn-outline-info">Back</a>
                     <input type="submit" class="btn btn-outline-success" value="Submit">
                 </td>
             </tr>

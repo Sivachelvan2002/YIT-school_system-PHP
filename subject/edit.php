@@ -42,7 +42,10 @@ $row = mysqli_fetch_array($result);
 		</tr>
 
 	</table> </br>
-	<div><input type="reset" value="Reset" class="btn btn-outline-danger"> <input type="submit" value="Save" class="btn btn-outline-success"></div>
+	<div>
+	<a class="btn btn-outline-danger" href="subject/delete.php?id=<?php echo $id ?>" onclick="return confirm('Are you sure !')">Delete </a>
+	<input type="submit" value="Save" class="btn btn-outline-success">
+</div>
 
 
 

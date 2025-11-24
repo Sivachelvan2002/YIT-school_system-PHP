@@ -7,8 +7,8 @@
 	}
 </style>
 <h4 class="text-center mb-4 bg-secondary p-2">Add Grade</h4>
-<div class="add-grade">
-	<form action="grade/store.php" method="POST" autocomplete="on">
+<div >
+	<form action="grade/store.php" method="POST" autocomplete="on" class="add-grade">
 		<table class="table table-dark table-hover" style="width: 24rem;">
 			<tr>
 				<td><label for="grade_name">Grade Name</label></td>
@@ -28,7 +28,8 @@
 			</tr>
 
 		</table>
+		<div><input type="reset" value="Reset" class="btn btn-outline-danger"> <input type="submit" value="Add" class="btn btn-outline-success"></div>
 	</form>
-	<div><input type="reset" value="Reset" class="btn btn-outline-danger"> <input type="submit" value="Add" class="btn btn-outline-success"></div>
+	
 
 </div>

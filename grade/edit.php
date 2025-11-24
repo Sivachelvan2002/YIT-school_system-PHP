@@ -38,7 +38,8 @@
 	
 </table> </br>
 <div>
-<input type="reset" value="Reset" class="btn btn-outline-danger"> <input type="submit" value="Save" class="btn btn-outline-success">
+<a class="btn btn-outline-danger" href="grade/delete.php?id=<?php echo $id ?>" onclick="return confirm('Are you sure !')">Delete </a>
+<input type="submit" value="Save" class="btn btn-outline-success">
 </div>	
 
 </form>
