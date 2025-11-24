@@ -21,16 +21,16 @@ $results = mysqli_query($conn, $query1);
 	img {
 		width: 300px;
 		height: 300px;
-		border-radius: 20%;
+		border-radius: 50%;
 		border-color: blue;
-		box-shadow: 10px 10px gray;
+		
 		margin-bottom: 30px;
 		
 	}
 	img:hover{
 		transform: scale(1.2);
 		transition-duration: 0.5s;
-		
+		box-shadow: 5px 5px gray;
 	}
 
 	.button {

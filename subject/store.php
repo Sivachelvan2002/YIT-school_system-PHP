@@ -27,7 +27,7 @@ if($_SERVER ["REQUEST_METHOD"] == "POST" ){
 	$subject_indexes=[];
 	while($row=mysqli_fetch_assoc($checkResult)){
 		$subject_names[]=$row['subject_name'];
-		$subject_index[]=$row['subject_index'];
+		$subject_indexes[]=$row['subject_index'];
 	}
 	if(in_array($subject_name,$subject_names) && in_array($subject_index,$subject_indexes)){
 		echo "<script>
