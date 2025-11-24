@@ -126,3 +126,4 @@ while ($row1 = mysqli_fetch_assoc($results1)) {
 		</table>
 	</div>
 </div>
+<center><a href="?section=student&page=index" class="btn btn-outline-info">Back</a></center>

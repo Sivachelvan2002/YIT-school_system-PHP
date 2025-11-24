@@ -8,7 +8,7 @@ if(!$results){
 }
 
 ?>
-<h2><center>Subject Details</center></h2>
+<h2 class="text-center mb-4 bg-secondary p-2">Subject Details</h2>
 <hr/>
 	<table class="table table-dark table-hover">
 			<tr>
@@ -30,10 +30,10 @@ if(!$results){
 				<td><?php echo $subject['subject_order']; ?></td>
 				<td><input type="color" value="<?php echo $subject['subject_color']; ?>"></td>
 				<td><?php echo $subject['subject_number']; ?></td>
-				<td><button class="btn btn-outline-secondary"><a href="?section=subject&page=edit&id=<?php echo $subject['id'];?>" >Edit </a></button></td>
-				<td><button class="btn btn-outline-danger" ><a href="subject/delete.php?id=<?php echo $subject['id'] ?>" onclick ="return confirm('Are you sure !')">Delete </a></button>
+				<td><a class="btn btn-outline-secondary" href="?section=subject&page=edit&id=<?php echo $subject['id'];?>" >Edit </a></td>
+				<td><a class="btn btn-outline-danger" href="subject/delete.php?id=<?php echo $subject['id'] ?>" onclick ="return confirm('Are you sure !')">Delete </a>
 					</td>
-				<td><button class="btn btn-outline-success" ><a href="?section=subject&page=show&id=<?php echo $subject['id'];?>" >Show </a></button></td>
+				<td><a class="btn btn-outline-success" href="?section=subject&page=show&id=<?php echo $subject['id'];?>" >Show </a></td>
 			</tr>
 		<?php } ?>
 	</table></br>

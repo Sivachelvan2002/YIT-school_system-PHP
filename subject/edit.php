@@ -6,12 +6,18 @@ $query = "SELECT * FROM subjects WHERE id = '$id' ;";
 $result = mysqli_query($conn, $query);
 $row = mysqli_fetch_array($result);
 ?>
-
-<form action="subject/update.php" method="POST" autocomplete="on">
-	<table class="table table-hover table-striped">
-		<tr>
-			<th colspan="2"> Edit Subject details </th>
-		</tr>
+<style>
+	.edit-subject {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+</style>
+<h4 class="text-center mb-4 bg-secondary p-2">Edit Subject Details</h4>
+<form action="subject/update.php" method="POST" autocomplete="on" class="edit-subject">
+	<table class="table table-hover table-dark table-striped" style="width: 24rem;">
+		
 		<tr>
 			<td><label for="subject_name">Subject Name</label></td>
 			<td><input type="text" name="subject_name" id="subject_name" value="<?php echo $row['subject_name'] ?>">
@@ -36,7 +42,8 @@ $row = mysqli_fetch_array($result);
 		</tr>
 
 	</table> </br>
-	<input type="reset" value="Reset"> <input type="submit" value="Save">
+	<div><input type="reset" value="Reset" class="btn btn-outline-danger"> <input type="submit" value="Save" class="btn btn-outline-success"></div>
+
 
 
 </form>

@@ -1,9 +1,16 @@
-<form action="subject/store.php" method="POST" autocomplete="on">
+<style>
+	.add-subject {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+</style>
+<h4 class="text-center mb-4 bg-secondary p-2">Subject Details</h4>
+<form action="subject/store.php" method="POST" autocomplete="on" class="add-subject">
 
-	<table border="1" cellpadding="10" cellspacing="0">
-		<tr>
-			<th colspan="2"> Subject Registation </th>
-		</tr>
+	<table class="table table-dark table-hover" style="width: 24rem;">
+
 
 		<tr>
 			<td><label for="subject_name">Subject Name</label></td>
@@ -29,7 +36,8 @@
 	</table>
 
 	</br>
-	<button><input type="reset" value="Reset"></button><?php echo "\t"; ?><button><input type="submit" value="Add"></button>
-
+	<div>
+		<input type="reset" value="Reset" class="btn btn-outline-danger"><?php echo "\t"; ?><input type="submit" value="Add" class="btn btn-outline-success">
+	</div>
 
 </form>

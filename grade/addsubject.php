@@ -30,15 +30,20 @@
         $subjects[] = $row1;
     }
     ?>
+<style>
+    .add-subject {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
 
-
-
-
-
-    <table border="1">
+<h4 class="text-center mb-4 bg-secondary p-2">Add Subjects</h4>
+<div class="add-subject">
+    <table class="table table-dark table-hover" style="width: 24rem;">
         <tr>
             <th colspan="2" style="text-align:center;">
-                <h1>Grade Details</h1>
+                <h4>Grade Details</h4>
             </th>
         </tr>
         <th>Grade Name</th>
@@ -67,7 +72,7 @@
                                 <input type="hidden" name="grade_id" value="<?php echo $id; ?>">
                                 <input type="hidden" name="delete_subject_id" value="<?php echo $subject['id']; ?>">
                                 <?php echo $subject['subject_name']; ?>
-                                <button type="submit" name="delete" >Delete</button>
+                                <input type="submit" name="delete" value="Delete" class="btn btn-outline-danger">
                             </form><br>
                 <?php }
                     }
@@ -99,9 +104,11 @@
             </tr>
             <tr>
                 <td colspan="2" style="text-align:center;">
-                    <input type="submit" value="Submit">
+                    <a href="?section=grade&page=index" class="btn btn-outline-info">Back</a>
+                    <input type="submit" value="Submit" class="btn btn-outline-success">
                 </td>
             </tr>
         </form>
 
     </table>
+    </div>

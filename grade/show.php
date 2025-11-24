@@ -7,12 +7,18 @@
 
 
 ?>
-
-<h2>Grade Details</h2>
-<table border="1" cellpadding = "10" cellspacing = "4">
-	<tr>
-		<th colspan = "2">Grade details  </th> 
-	</tr>
+<style>
+	.show-grade {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+</style>
+<h4 class="text-center mb-4 bg-secondary p-2">Grade Details</h4>
+<div class="show-grade">
+<table class="table table-dark table-hover" style="width: 24rem;">
+	
 	<tr>
 		<td><label for="grade_name">Grade Name</label></td>
 		<td>
@@ -33,5 +39,6 @@
 		<td><input type="text" name="grade_order" id="grade_order" value="<?php echo $row['grade_order']?>"></td>
 	</tr>
 	
-</table> </br>
-
+</table> 
+<div><a href="?section=grade&page=index" class="btn btn-outline-info">Back</a></div>
+</div>

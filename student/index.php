@@ -5,9 +5,9 @@
 	
 
 ?>
-<h2><center>Student Details</center></h2>
+<h2 class="text-center mb-4 bg-secondary p-2">Student Details</h2>
 <hr/>
-	<table class="table table-dark table-hover table-sm table align-middle table-bordered border-secondary" >
+	<table class="table table-dark table-hover table-sm table align-middle table-bordered border-secondary rounded-3" >
 			<tr>
 				<td>Id</td>
 				<td>Profile</td>

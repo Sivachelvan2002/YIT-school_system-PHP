@@ -14,14 +14,15 @@ $results = mysqli_query($conn, $query);
 				display: flex;
 				justify-content: center;
 				align-items: center;
+				
 			}
 		</style>
 	</head>
 
-	<body class="bg-gradient">
-		<div class="container mt-5">
-			<div class="card" style="width: 18rem;">
-				<div class="card-header text-center bg-secondary.bg-gradient text-dark">Login Form</div>
+	<body class="bg-secondary">
+		<div class="container mt-5 ">
+			<div class="card bg-info" style="width: 18rem;">
+				<div class="card-header text-center bg-success text-dark">Login Form</div>
 				<div class="card-body ">
 					<form method="POST" action="islogin.php">
 						<div class="mb-3">

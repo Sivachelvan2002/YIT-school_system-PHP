@@ -30,7 +30,7 @@ $results = mysqli_query($conn, $query1);
 	img:hover{
 		transform: scale(1.2);
 		transition-duration: 0.5s;
-		border: 2px solid blueviolet;
+		
 	}
 
 	.button {

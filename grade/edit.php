@@ -6,12 +6,18 @@
 	$result = mysqli_query($conn,$query);
 	$row = mysqli_fetch_array($result);
 ?>
-
-<form action="grade/update.php" method = "POST" autocomplete = "on">
-<table border="1" cellpadding = "10" cellspacing = "4">
-	<tr>
-		<th colspan = "2"> Edit Grade details  </th> 
-	</tr>
+<style>
+	.edit-grade {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+</style>
+<h4 class="text-center mb-4 bg-secondary p-2">Edit Grade Details</h4>
+<form action="grade/update.php" method = "POST" autocomplete = "on" class="edit-grade">
+<table class="table table-dark table-hover" style="width: 24rem;">
+	
 	<tr>
 		<td><label for="grade_name">Grade Name</label></td>
 		<td><input type="text" name="grade_name" id="grade_name" value="<?php echo $row['grade_name']?>">
@@ -31,8 +37,9 @@
 	</tr>
 	
 </table> </br>
-<input type="reset" value="Reset"> <input type="submit" value="Save">
-	
+<div>
+<input type="reset" value="Reset" class="btn btn-outline-danger"> <input type="submit" value="Save" class="btn btn-outline-success">
+</div>	
 
 </form>
 

@@ -10,15 +10,16 @@ if(!$results){
 }
 
 ?>
-<h2><center>Grade Details</center></h2>
+<h2 class="text-center mb-4 bg-secondary p-2">Grade Details</h2>
 <hr/>
-	<table border="1" cellpadding = "5" cellspacing = "3">
+	<table class="table table-dark table-hover">
 			<tr>
 				<td>Id</td>
 				<td>Grade Name</td>
 				<td>Grade Group</td>
 				<td>Grade Color</td>
 				<td>Grade Order</td>
+				<td colspan="4"></td>
 				
 			</tr>
 		<?php foreach($results as $grade){ ?>
@@ -29,15 +30,14 @@ if(!$results){
 				<td><?php echo $grade['grade_group']; ?></td>
 				<td><input type="color" value="<?php echo $grade['grade_color']; ?>"</td>
 				<td><?php echo $grade['grade_order']; ?></td>
-				<td><button class="button"><a href="?section=grade&page=edit&id=<?php echo $grade['grade_id'];?>" >Edit </a></button></td>
-				<td><button class="button"><a href="grade/delete.php?id=<?php echo $grade['grade_id'];?>" onclick ="return confirm('Are you sure !')">Delete </a></button>
-					</td>
-				<td><button class="button"><a href="?section=grade&page=show&id=<?php echo $grade['grade_id'];?>" >Show </a></button></td>
-				<td><button class="button"><a href="?section=grade&page=addsubject&id=<?php echo $grade['grade_id']; ?>">Add Subject </a></button>
+				<td><a class="btn btn-outline-secondary" href="?section=grade&page=edit&id=<?php echo $grade['grade_id'];?>" >Edit </a></td>
+				<td><a class="btn btn-outline-danger" href="grade/delete.php?id=<?php echo $grade['grade_id'];?>" onclick ="return confirm('Are you sure !')">Delete </a></td>
+				<td><a class="btn btn-outline-success" href="?section=grade&page=show&id=<?php echo $grade['grade_id'];?>" >Show </a></td>
+				<td><a class="btn btn-outline-info" href="?section=grade&page=addsubject&id=<?php echo $grade['grade_id']; ?>">Add Subject </a>
 				</td>
 			</tr>
 		<?php } ?>
 	</table></br>
-	<button><a href="?section=grade&page=create-form">Add Grade</a></button>
+	<a class="btn btn-warning" href="?section=grade&page=create-form">Add Grade</a>
 </body>
 </html>

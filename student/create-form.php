@@ -6,12 +6,17 @@
 
 
 ?>
-
-<form action="student/store.php" method="POST" enctype="multipart/form-data" autocomplete="on">
-<table border="1" cellpadding = "10" cellspacing = "0">
-	<tr>
-		<th colspan = "2"> Student Registation </th> 
-	</tr>
+<style>
+	.add-student {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+</style>
+<h4 class="text-center mb-4 bg-secondary p-2">Add Student</h4>
+<form action="student/store.php" method="POST" enctype="multipart/form-data" autocomplete="on" class="add-student">
+<table class="table table-dark table-hover" style="width: 32rem;">
 	
 	<tr>
 		<td><label for="profile">Profile</label></td>
@@ -65,9 +70,10 @@
 		<td><label for="address">Address</label></td>
 		<td><input type="text" name="address" id="address" ></td>
 	</tr>
-</table> </br>
-<input type="reset" value="Reset"> <input type="submit" value="Add">
-	
+</table>
+<div>
+<input type="reset" value="Reset" class="btn btn-outline-danger"> <input type="submit" value="Add" class="btn btn-outline-success">
+</div>	
 
 </form>
 
