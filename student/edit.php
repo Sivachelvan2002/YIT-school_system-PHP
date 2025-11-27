@@ -7,7 +7,7 @@ $result = mysqli_query($conn, $query);
 $row = mysqli_fetch_array($result);
 $profilepath = $row['profile'];
 
-
+//select query
 $query1 = "SELECT grade_id,grade_name FROM grades;";
 $results = mysqli_query($conn, $query1);
 

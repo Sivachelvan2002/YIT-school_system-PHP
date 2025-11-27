@@ -48,4 +48,4 @@ $results = mysqli_query($conn, $query);
 		</tr>
 	<?php } ?>
 </table></br>
-<a class="btn btn-warning" href="?section=student&page=create-form">Add Student</a>
+<a class="btn btn-warning " href="?section=student&page=create-form">Add Student</a>
