@@ -1,6 +1,5 @@
 <?php
 	$id = $_GET['id'];
-	require_once('../config.php');
 	
 	$query = "SELECT * FROM grades WHERE grade_id = '$id' ;";
 	$result = mysqli_query($conn,$query);
@@ -8,34 +7,18 @@
 
 
 ?>
-<DOCTYPE html>
-<html>
-<head>
-<title>show-Grade</title>
 <style>
-	
-	table{
-		border-width:2px;
-		border-style:solid;
-		background-color:#ccc;
-		text-align:center;
-		align:center;
+	.show-grade {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
-	body {
-            font-family: "Times New Roman", Times, serif;;
-            background-color:#CBD99B ;
-            color: #2F3542;
-        }
-
 </style>
-</head>
-<body>
-<center>
-<h2>Grade Details</h2>
-<table border="1" cellpadding = "10" cellspacing = "4">
-	<tr>
-		<th colspan = "2">Grade details  </th> 
-	</tr>
+<h4 class="text-center mb-4 bg-secondary p-2">Grade Details</h4>
+<div class="show-grade">
+<table class="table table-dark table-hover" style="width: 24rem;">
+	
 	<tr>
 		<td><label for="grade_name">Grade Name</label></td>
 		<td>
@@ -56,8 +39,6 @@
 		<td><input type="text" name="grade_order" id="grade_order" value="<?php echo $row['grade_order']?>"></td>
 	</tr>
 	
-</table> </br>
-
-</center>
-</body>
-</html>
+</table> 
+<div><a href="?section=grade&page=index" class="btn btn-outline-info">Back</a></div>
+</div>

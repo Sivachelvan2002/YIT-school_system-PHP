@@ -1,75 +1,79 @@
-<DOCTYPE html>
-	<html>
+<?php
+$id = $_GET['id'];
+//require_once('../config.php');
 
-	<head>
-		<title>Edit-student</title>
-		<style>
-			table {
-				border-width: 2px;
-				border-style: solid;
-				background-color: #ccc;
-				text-align: center;
-				align: center;
-			}
+$query = "SELECT * FROM students WHERE id = '$id' ;";
+$result = mysqli_query($conn, $query);
+$row = mysqli_fetch_array($result);
+$profilepath = $row['profile'];
 
-			body {
-				font-family: "Times New Roman", Times, serif;
-				;
-				background-color: #CBD99B;
-				color: #2F3542;
-			}
+//select query
+$query1 = "SELECT grade_id,grade_name FROM grades;";
+$results = mysqli_query($conn, $query1);
 
-			img {
-				width: 100px;
-				height: 100px;
-				border-radius: 50%;
-			}
+?>
+<style>
+	.card {
+		width: 24rem;
 
-			.profile td {
-				background-color: #CBD99B;
-				display: flex;
-				flex-direction: column;
-				justify-content: space-around;
-				align-items: center;
-			}
-		</style>
-	</head>
+	}
 
-	<body>
-		<?php
-		$id = $_GET['id'];
-		require_once('../config.php');
+	img {
+		width: 300px;
+		height: 300px;
+		border-radius: 50%;
+		border-color: blue;
 
-		$query = "SELECT * FROM students WHERE id = '$id' ;";
-		$result = mysqli_query($conn, $query);
-		$row = mysqli_fetch_array($result);
+		margin-bottom: 30px;
+
+	}
+
+	img:hover {
+		transform: scale(1.2);
+		transition-duration: 0.5s;
+		box-shadow: 5px 5px gray;
+	}
+
+	.button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+
+	}
+
+	.main {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+</style>
+<div class=" bg-gradient">
+	<h4 class="text-center mb-4 bg-secondary p-2">Edit student Details</h4>
+	<div class="">
+		<form action="student/update.php?id=<?php echo $id ?>&path=<?php echo $profilepath ?>" method="POST" enctype="multipart/form-data" autocomplete="on" class="main">
+
+			<div class=".main">
+				<div class="">
+					<img src="<?php echo substr($profilepath, 3) ?>"><br />
+
+				</div>
+				<div class="button">
+					<a class="btn btn-outline-danger" href="student/delete-profile.php?id=<?php echo $row['id'] ?>&path=<?php echo $profilepath ?>">Delete Image</a></button>
+					<input type="file" name="myfile" id="myfile">
+				</div>
 
 
-		$query1 = "SELECT grade_id,grade_name FROM grades;";
-		$results = mysqli_query($conn, $query1);
 
-		?>
-		<center>
-			<form action="update.php" method="POST" enctype="multipart/form-data" autocomplete="on">
-				<table border="1" cellpadding="10" cellspacing="4">
+			</div>
+			<div class="card">
+				<table class="table table-dark table-hover table-bordered">
+
 					<tr>
-						<th colspan="2"> Edit Student details </th>
-					</tr>
-					<tr>
-						<div class="profile">
-							<td colspan="2"> <img src="<?php echo $row['profile'] ?>"><br />
-
-								<button><a href="delete_profile.php?id=<?php echo $row['id'] ?>">Delete Image</a></button>
-								<input type="file" name="myfile" id="myfile" accept="image/jpg">
-
-							</td>
-						</div>
-
-
-					</tr>
-					<tr>
-						<td><label for="father_name">Father Name</label></td>
-						<td><input type="text" name="father_name" id="father_name" value="<?php echo $row['father_name'] ?>">
+						<td>
+							<label for="father_name">Father Name</label>
+						</td>
+						<td><input type="text" name="father_name" value="<?php echo $row['father_name'] ?>">
 							<input type="hidden" name="id" id="id" value="<?php echo $row['id'] ?>">
 						</td>
 					</tr>
@@ -88,7 +92,12 @@
 							<select name="grade_id">
 								<?php while ($row1 = mysqli_fetch_assoc($results)) { ?>
 
-									<option value="<?php echo $row1['grade_id']; ?>"><?php echo $row1['grade_name'] ?></option>
+									<option value="<?php echo $row1['grade_id']; ?>"
+										<?php if ($row1['grade_id'] == $row['grade_id']) echo "selected"; ?>>
+
+										<?php echo $row1['grade_name']; ?>
+
+									</option>
 								<?php } ?>
 							</select>
 						</td>
@@ -125,12 +134,26 @@
 						<td><label for="address">Address</label></td>
 						<td><input type="text" name="address" id="address" value="<?php echo $row['address'] ?>"></td>
 					</tr>
-				</table> </br>
-				<input type="reset" value="Reset"> <input type="submit" value="Save">
+					<tr>
+						<div>
+							<td colspan="2" class="">
+								<div class="text-center button text-center">
+									<a class="btn btn-outline-danger" href="student/delete.php?id=<?php echo $id ?>" onclick="return confirm('Are you sure !')">Delete </a>
+									<input type="submit" class="btn btn-outline-success" value="Save">
+								</div>
+							</td>
+
+						</div>
+
+					</tr>
+				</table>
+
+			</div>
 
 
-			</form>
-		</center>
-	</body>
 
-	</html>
+
+		</form>
+
+	</div>
+</div>

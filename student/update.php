@@ -1,6 +1,9 @@
 <?php
+$path = isset($_GET['path']) ? $_GET['path'] : '';
 require_once('../config.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $target_file = "";
+    $file = null;
     if (!empty($_FILES['myfile']['name'])) {
         $file = $_FILES['myfile'];
     }
@@ -15,50 +18,73 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $telephone_number = $_POST['telephone_number'];
     $address = $_POST['address'];
 
-    require_once('../config.php');
-    //check admission number
-    $checkQuery = "SELECT * FROM students WHERE admission_number = '$admission_number' AND (id != '$id')";
-	$checkResult = mysqli_query($conn, $checkQuery);
 
-	if (mysqli_num_rows($checkResult) > 0) {
-		echo "<script>
-            alert('Admission number already exists!');
+    $checkQuery = "SELECT admission_number,nic_number FROM students where id !=$id";
+    $checkResult = mysqli_query($conn, $checkQuery);
+    $admission_numbers = [];
+    $nic_numbers = [];
+    while ($row = mysqli_fetch_assoc($checkResult)) {
+        $admission_numbers[] = $row['admission_number'];
+        $nic_numbers[] = $row['nic_number'];
+    }
+
+    if (in_array($admission_number, $admission_numbers) && in_array($nic_number, $nic_numbers)) {
+        echo "<script>
+            alert('admission number and nic number already exists!');
             window.history.back();
             </script>";
-		exit();
-	}
+        exit();
+    } elseif (in_array($admission_number, $admission_numbers)) {
+        echo "<script>
+            alert('Addmission number already exists!');
+            window.history.back();
+            </script>";
+        exit();
+    } elseif (in_array($nic_number, $nic_numbers)) {
+        echo "<script>
+            alert('Nic number already exists!');
+            window.history.back();
+            </script>";
+        exit();
+    } else {
 
-    if (isset($file) && $file['name'] != '') {
-        $target_dir = "../upload/";
-        $target_file = $target_dir . basename($file['name']);
-        $original_file_name = basename($file['name']);
-        $allowedTypes = ['jpg', 'jpeg', 'png', 'gif'];
-        $image_file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-        if (in_array($image_file_type, $allowedTypes)) {
-            $size = $file["size"];
-            if ($size < 10000000) {
-                if (move_uploaded_file($file["tmp_name"], $target_file)) {
-                    $query1 = "UPDATE students SET profile ='$target_file' WHERE id ='$id'; ";
-                    $results1 = mysqli_query($conn, $query1);
-                    if (!$results1) {
-                        echo mysqli_error($conn);
+        if ($file && $file['name'] != '') {
+            $target_dir = "../upload/";
+            $target_file = $target_dir . basename($file['name']);
+            $original_file_name = basename($file['name']);
+            $allowedTypes = ['jpg', 'jpeg', 'png', 'gif'];
+            $image_file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+            if (in_array($image_file_type, $allowedTypes)) {
+                $size = $file["size"];
+                if ($size < 1000000) {
+                    if (move_uploaded_file($file["tmp_name"], $target_file)) {
+                        $query1 = "UPDATE students SET profile ='$target_file' WHERE id ={$id}; ";
+                        $results1 = mysqli_query($conn, $query1);
+                        if ($path != $target_file) {
+                            unlink($path);
+                        }
+                        if (!$results1) {
+                            echo mysqli_error($conn);
+                        }
+                    } else {
+                        echo "profile image Upload Failed!";
                     }
                 } else {
-                    echo "profile image Upload Failed!";
+                    echo "Over profile image size..";
                 }
             } else {
-                echo "Over profile image size..";
+                echo " Upload profile Only allowed file types";
             }
-        } else {
-            echo " Upload profile Only allowed file types";
         }
-    }
+        // delete old profile when change photo without delete
 
-    $query = "UPDATE students SET father_name = '$father_name' ,student_name = '$student_name',admission_number = '$admission_number',grade_id = '$grade_id',nic_number = '$nic_number',date_of_birth='$date_of_birth',gender='$gender',telephone_number='$telephone_number',address='$address' WHERE id ='$id'; ";
-    $results = mysqli_query($conn, $query);
 
-    if (!$results) {
-        echo mysqli_error($conn);
+        $query = "UPDATE students SET father_name = '$father_name' ,student_name = '$student_name',admission_number = '$admission_number',grade_id = '$grade_id',nic_number = '$nic_number',date_of_birth='$date_of_birth',gender='$gender',telephone_number='$telephone_number',address='$address' WHERE id ='$id'; ";
+        $results = mysqli_query($conn, $query);
+
+        if (!$results) {
+            echo mysqli_error($conn);
+        }
+        header("Location: ../index.php?section=student&page=index");
     }
-    header("Location: index.php");
 }

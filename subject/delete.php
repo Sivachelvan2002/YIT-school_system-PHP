@@ -8,7 +8,7 @@ $result = mysqli_query($conn,$query);
 
 if($result){
 	echo "query executed successfully...";
-	header("Location:index.php");
+	header("Location:../index.php?section=subject&page=index");
 }
 else{
 	echo ("query not executed..").mysqli_error($conn);
